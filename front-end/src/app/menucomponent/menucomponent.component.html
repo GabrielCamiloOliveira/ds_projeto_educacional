@@ -1,10 +1,15 @@
-<!-- app.component.html -->
 <div class="background-container">
-  <img src='assets\images\Menuzoom.jpg' alt="Background Image" class="background-image">
+  <img src='assets\images\background.gif' alt="Background Image" class="background-image">
+
   <!-- Posicionamento absoluto dos botões -->
   <button class="buttonAjuda" (click)="handleButtonClick('assets/images/ajuda.png')"></button>
   <button class="buttonColecao" (click)="handleButtonClick('assets/images/colecao.png')"></button>
   <button class="buttonExercicios" (click)="handleButtonClick('assets/images/exercicios.png')"></button>
   <button class="buttonAprender" (click)="handleButtonClick('assets/images/aprender.png')"></button>
-  <!-- Adicione mais botões conforme necessário -->
+
+    <!-- tag de áudio -->
+    <audio controls autoplay loop volume="0.01">
+      <source src=".\assets\music\41 Vermilion City - Pokémon FireRed and AquaBlue Super Music Collection (320 kbps).mp3" type="audio/mp3">
+      Seu navegador não suporta a tag de áudio.
+    </audio>
 </div>

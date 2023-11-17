@@ -1,0 +1,12 @@
+/* pokedex.component.scss */
+.pokedex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  .pokemon-item {
+    text-align: center;
+    margin: 10px;
+  }
+  

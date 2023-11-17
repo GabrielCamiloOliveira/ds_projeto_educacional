@@ -1,2 +1,2 @@
-<app-menucomponent></app-menucomponent>
+<app-menucomponent *ngIf="isMenuVisible" (menuButtonClick)="handleMenuButtonClick($event)"></app-menucomponent>
 <router-outlet></router-outlet>
