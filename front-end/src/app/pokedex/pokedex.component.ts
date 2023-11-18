@@ -16,7 +16,7 @@ export class PokedexComponent implements OnInit {
   }
 
   loadPokemonList(): void {
-    const pokemonCount = 151; // Você pode ajustar conforme necessário
+    const pokemonCount = 151;
 
     for (let i = 1; i <= pokemonCount; i++) {
       this.pokeapiService.getPokemonDetails(i).subscribe(

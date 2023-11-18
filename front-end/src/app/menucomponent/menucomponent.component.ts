@@ -1,32 +1,40 @@
 import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menucomponent',
   templateUrl: './menucomponent.component.html',
-  styleUrls: ['./menucomponent.component.scss']
+  styleUrls: ['./menucomponent.component.scss'],
 })
+
 export class MenucomponentComponent implements AfterViewInit {
 
-  constructor(private router: Router) {}
-
+  isMenuVisible = true;
   @Output() menuButtonClick = new EventEmitter<string>();
 
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.isMenuVisible = !(event.url === '/menu-dificuldade' || event.url === '/pokedex');
+      }
+    });
+  }
+
   handleButtonClick(imageLink: string): void {
-    // Lógica para lidar com o clique do botão
-    console.log(`Botão clicado! Imagem: ${imageLink}`);
 
     if (imageLink.includes('exercicios')) {
-      this.router.navigate(['/pokemon-details']);
+      const route = '/menu-dificuldade';
+      this.menuButtonClick.emit(route);
+      this.router.navigate([route]);
+
     } else if (imageLink.includes('colecao')) {
-      const route = '/pokedex'; // Defina a rota desejada
-      this.menuButtonClick.emit(route); // Emite o evento para o AppComponent
+      const route = '/pokedex';
+      this.menuButtonClick.emit(route);
       this.router.navigate([route]);
     }
   }
 
   ngAfterViewInit(): void {
-    // Selecione o elemento de áudio e ajuste o volume para 1%
     const audioElement = document.querySelector('audio');
     if (audioElement) {
       audioElement.volume = 0.01;

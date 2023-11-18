@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { MenucomponentComponent } from './menucomponent/menucomponent.component';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
 import { PokedexComponent } from './pokedex/pokedex.component';
+import { MenuDificuldadeComponent } from './menu-dificuldade/menu-dificuldade.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AjudaComponent } from './ajuda/ajuda.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { PokedexComponent } from './pokedex/pokedex.component';
     MenucomponentComponent,
     PokemonDetailsComponent,
     PokedexComponent,
+    MenuDificuldadeComponent,
+    AjudaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
