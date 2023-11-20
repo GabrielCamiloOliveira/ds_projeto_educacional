@@ -1,5 +1,4 @@
 body, html {
-    height: 100%;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -29,8 +28,8 @@ body, html {
   .buttonExercicios,
   .buttonAprender {
     box-sizing: border-box;
-    animation: blink 0.6s infinite alternate; /* Aplica a animação de piscar constantemente */
-    transition: opacity 0.6s ease; /* Adiciona uma transição de opacidade */
+    animation: blink 1s infinite alternate; /* Aplica a animação de piscar constantemente */
+    transition: opacity 1s ease; /* Adiciona uma transição de opacidade */
   }
   
   .buttonAjuda {
@@ -98,4 +97,8 @@ body, html {
     transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
   }
   
-  
+  .audiocontroller {
+    position: absolute;
+    top: 2%;
+    left: 1%;
+  }

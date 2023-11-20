@@ -1,0 +1,7 @@
+  <div class="pokedex-container">
+      <div *ngFor="let pokemon of pokemonList; let i = index" class="pokemon-item">
+        <img [src]="pokemon.sprites.front_default" alt="Pokemon Image">
+        <p class="pokemon-name">{{ pokemon.name }}</p>
+      </div>
+    </div>
+    
