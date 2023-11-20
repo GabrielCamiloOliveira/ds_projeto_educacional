@@ -23,3 +23,204 @@ body, html {
     background-position: center;
     background-attachment: fixed;
   }
+
+  .buttonIniciante {
+    background: url('/assets/images/textbox.png') no-repeat;
+    background-size: cover; /* Adicione esta linha */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 25%;
+    height: 20%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .buttonModerado {
+    background: url('/assets/images/textbox.png') no-repeat;
+    background-size: cover; /* Adicione esta linha */
+    position: absolute;
+    top: 28%;
+    left: 5%;
+    width: 25%;
+    height: 20%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .buttonExperiente {
+    background: url('/assets/images/textbox.png') no-repeat;
+    background-size: cover; /* Adicione esta linha */
+    position: absolute;
+    top: 51%;
+    left: 5%;
+    width: 25%;
+    height: 20%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .buttonMestre {
+    background: url('/assets/images/textbox.png') no-repeat;
+    background-size: cover; /* Adicione esta linha */
+    position: absolute;
+    top: 74%;
+    left: 5%;
+    width: 25%;
+    height: 20%;
+    border: none;
+    cursor: pointer;
+  }
+
+  .button-text {
+    font-family: 'Pokemon';
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 150%;
+  }
+
+  .bulbassaurimg {
+    top: 10%;
+    position: absolute;
+    left: 57%;
+    height: 120%;
+    display: block;
+  }
+
+  .ninetailsimg {
+    top: 5%;
+    position: absolute;
+    left: 60%;
+    height: 90%;
+  }
+
+  .gengarimg {
+    top: 10%;
+    position: absolute;
+    left: 62%;
+    height: 90%;
+  }
+
+  .moltresimg {
+    top: 5%;
+    position: absolute;
+    left: 64%;
+    height: 90%;
+  }
+
+  @keyframes blink {
+    from {
+      opacity: 0.9;
+    }
+    to {
+      opacity: 1.0;
+    }
+  }
+
+  .buttonIniciante:hover,
+  .buttonModerado:hover,
+  .buttonExperiente:hover,
+  .buttonMestre:hover {
+    opacity: 1.0 !important; /* Reduz a opacidade ao passar o mouse */
+    transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
+  }
+
+  .buttonIniciante,
+  .buttonModerado,
+  .buttonExperiente,
+  .buttonMestre {
+    box-sizing: border-box;
+    animation: blink 0.8s infinite alternate; /* Aplica a animação de piscar constantemente */
+    transition: opacity 1s ease; /* Adiciona uma transição de opacidade */
+  }
+
+.descIniciante1 {
+
+  position: absolute;
+  font-size: 500%;
+  left: 12%;
+  top: 47%;
+}
+
+.descIniciante2 {
+
+  position: absolute;
+  font-size: 500%;
+  left: 30%;
+  top: 47%;
+}
+
+.descIniciante3 {
+
+  position: absolute;
+  font-size: 500%;
+  left: 45%;
+  top: 47%;
+}
+
+.descModerado1 {
+
+  position: absolute;
+  font-size: 500%;
+  left: 12%;
+  top: 42%;
+}
+
+.descModerado2 {
+
+  position: absolute;
+  font-size: 500%;
+  left: 32%;
+  top: 42%;
+}
+
+.descExperiente1 {
+
+  position: absolute;
+  font-size: 500%;
+  left: 12%;
+  top: 42%;
+}
+
+.descExperiente2 {
+
+  position: absolute;
+  font-size: 500%;
+  left: 32%;
+  top: 42%;
+}
+
+.descMestre1 {
+  position: absolute;
+  font-size: 500%;
+  left: 12%;
+  top: 42%;
+}
+
+.descMestre2 {
+  position: absolute;
+  font-size: 500%;
+  left: 32%;
+  top: 42%;
+}
+
+/* No seu arquivo de estilo SCSS */
+.return-button {
+  font-family: 'Pokemon';
+  font-size: 60%;
+  position: absolute;
+  top: 5%;
+  right: 20px;
+  background-color: #8B0000; /* Vermelho vinho */
+  color: #FFFFFF; /* Texto branco */
+  padding: 15px 25px;
+  border: 2px solid #000000; /* Borda preta */
+  border-radius: 35%; /* Cantos arredondados */
+  cursor: pointer;
+  margin: 1px; /* Margem de 1px em preto */
+}
+
+.return-button:hover {
+  background-color: #B22222; /* Cor mais clara ao passar o mouse */
+}

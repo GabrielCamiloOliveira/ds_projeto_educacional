@@ -1,4 +1,37 @@
 <div class="background-container">
-    <img src='.\assets\images\MenuDificuldade.jpg' alt="Background Image" class="background-image">
+    <img src='.\assets\images\MenuDificuldadeBackground.png' alt="Background Image" class="background-image">
     
-</div>
+    <button class="buttonIniciante" (click)="handleButtonClick('assets/images/textbox.png')">
+      <img class = "bulbassaurimg" src="assets/images/bulbassaur.png" alt="Outra Imagem">
+      <span class="button-text">{{ textoIniciante }}</span>
+      <span class="descIniciante1"> {{ descIniciante1 }} </span>
+      <span class="descIniciante2"> {{ descIniciante2 }} </span>
+      <span class="descIniciante3"> {{ descIniciante3 }} </span>
+    </button>
+    
+    <button class="buttonModerado" (click)="handleButtonClick('assets/images/textbox_moderado.png')">
+      <img class = "ninetailsimg" src="assets/images/ninetails.png" alt="Outra Imagem">
+      <span class="button-text">{{ textoModerado }}</span>
+      <span class="descModerado1"> {{ descModerado1 }} </span>
+      <span class="descModerado2"> {{ descModerado2 }} </span>
+    </button>
+    
+    <button class="buttonExperiente" (click)="handleButtonClick('assets/images/textbox_experiente.png')">
+      <img class = "gengarimg" src="assets/images/gengar.png" alt="Outra Imagem">
+      <span class="button-text">{{ textoExperiente }}</span>
+      <span class="descExperiente1"> {{ descExperiente1 }} </span>
+      <span class="descExperiente2"> {{ descExperiente2 }} </span>
+    </button>
+    
+    <button class="buttonMestre" (click)="handleButtonClick('assets/images/textbox_mestre.png')">
+      <img class = "moltresimg" src="assets/images/moltres.png" alt="Outra Imagem">
+      <span class="button-text">{{ textoMestre }}</span>
+      <span class="descMestre1"> {{ descMestre1 }} </span>
+      <span class="descMestre2"> {{ descMestre2 }} </span>
+    </button>
+
+    <!-- No seu componente HTML -->
+    <button class="return-button" (click)="retornarHome()">Retornar</button>
+
+  </div>
+  
