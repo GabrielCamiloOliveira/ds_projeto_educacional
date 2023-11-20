@@ -25,6 +25,11 @@ export class MenuDificuldadeComponent {
   descMestre1 = '{}'
   descMestre2 = '√'
 
+  progressoIniciante = '40';
+  progressoModerado = '20';
+  progressoExperiente = '60';
+  progressoMestre = '100';
+
   constructor(private router: Router) {}
   
   retornarHome(): void {

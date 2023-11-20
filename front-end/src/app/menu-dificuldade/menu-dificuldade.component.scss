@@ -73,6 +73,7 @@ body, html {
   }
 
   .button-text {
+    font-weight: bold;
     font-family: 'Pokemon';
     position: absolute;
     top: 10%;
@@ -81,10 +82,10 @@ body, html {
   }
 
   .bulbassaurimg {
-    top: 10%;
+    top: 24%;
     position: absolute;
-    left: 57%;
-    height: 120%;
+    left: 65%;
+    height: 60%;
     display: block;
   }
 
@@ -111,7 +112,7 @@ body, html {
 
   @keyframes blink {
     from {
-      opacity: 0.9;
+      opacity: 0.8;
     }
     to {
       opacity: 1.0;
@@ -211,7 +212,7 @@ body, html {
   font-size: 60%;
   position: absolute;
   top: 5%;
-  right: 20px;
+  right: 2%;
   background-color: #8B0000; /* Vermelho vinho */
   color: #FFFFFF; /* Texto branco */
   padding: 15px 25px;
@@ -223,4 +224,237 @@ body, html {
 
 .return-button:hover {
   background-color: #B22222; /* Cor mais clara ao passar o mouse */
+}
+
+.loader-bar-iniciante {
+  width: 6%;
+  height: 6%;
+  display: grid;
+  grid-template-columns: repeat(3, 2vw) repeat(10, 2.5vw 1.5vw) repeat(2, 2vw);
+  grid-template-rows: repeat(6, 1.5vw); /* Adjust row size as needed */
+  position: absolute;
+  top: 7%;
+  left: 40%;
+  transform: scale(0.7);
+}
+
+.loader-bar-moderado {
+  width: 6%;
+  height: 6%;
+  display: grid;
+  grid-template-columns: repeat(3, 2vw) repeat(10, 2.5vw 1.5vw) repeat(2, 2vw);
+  grid-template-rows: repeat(6, 1.5vw); /* Adjust row size as needed */
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  transform: scale(0.7);
+}
+
+.loader-bar-experiente {
+  width: 6%;
+  height: 6%;
+  display: grid;
+  grid-template-columns: repeat(3, 2vw) repeat(10, 2.5vw 1.5vw) repeat(2, 2vw);
+  grid-template-rows: repeat(6, 1.5vw); /* Adjust row size as needed */
+  position: absolute;
+  top: 54%;
+  left: 40%;
+  transform: scale(0.7);
+}
+
+.loader-bar-mestre {
+  width: 6%;
+  height: 6%;
+  display: grid;
+  grid-template-columns: repeat(3, 2vw) repeat(10, 2.5vw 1.5vw) repeat(2, 2vw);
+  grid-template-rows: repeat(6, 1.5vw); /* Adjust row size as needed */
+  position: absolute;
+  top: 76%;
+  left: 40%;
+  transform: scale(0.7);
+}
+
+.block-border {
+  background-color: rgb(50,50,50);
+}
+
+.block-meter {
+  background-color: rgb(77, 2, 252);
+}
+
+.block-border:nth-of-type(1) {
+  grid-row: 1;
+  grid-column: 3/-3;
+}
+
+.block-border:nth-of-type(2) {
+  grid-row: -2;
+  grid-column: 3/-3;
+}
+
+.block-border:nth-of-type(3) {
+  grid-row: 3/5;
+  grid-column: 1;
+}
+
+.block-border:nth-of-type(4) {
+  grid-row: 3/5;
+  grid-column: -2;
+}
+
+.block-border:nth-of-type(5) {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+.block-border:nth-of-type(6) {
+  grid-row: 2;
+  grid-column: -3;
+}
+
+.block-border:nth-of-type(7) {
+  grid-row: 5;
+  grid-column: 2;
+}
+
+.block-border:nth-of-type(8) {
+  grid-row: 5;
+  grid-column: -3;
+}
+
+.block-meter:nth-of-type(9) {
+  grid-row: 3/5;
+  grid-column: 4;
+}
+
+.block-meter:nth-of-type(10) {
+  grid-row: 3/5;
+  grid-column: 6;
+}
+
+.block-meter:nth-of-type(11) {
+  grid-row: 3/5;
+  grid-column: 8;
+}
+
+.block-meter:nth-of-type(12) {
+  grid-row: 3/5;
+  grid-column: 10;
+}
+
+.block-meter:nth-of-type(13) {
+  grid-row: 3/5;
+  grid-column: 12;
+  opacity: 0;
+  animation: blinky1 2s linear forwards;
+}
+
+.block-meter:nth-of-type(14) {
+  grid-row: 3/5;
+  grid-column: 14;
+  opacity: 0;
+  animation: blinky1 2s 4s linear forwards;
+}
+
+.block-meter:nth-of-type(15) {
+  grid-row: 3/5;
+  grid-column: 16;
+  opacity: 0;
+  animation: blinky1 2s 8s linear forwards;
+}
+
+.block-meter:nth-of-type(16) {
+  grid-row: 3/5;
+  grid-column: 18;
+  opacity: 0;
+  animation: blinky2 3s 14s linear infinite;
+}
+
+@keyframes blinky1 {
+  99% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes blinky2 {
+  49% {opacity: 0;}
+  50% {opacity: 1;}
+  90% {opacity: 1;}
+}
+
+.progressoIniciante {
+  font-weight: bold; /* Peso da fonte */
+  position: absolute;
+  top: 2%;
+  left: 51%;
+  color: rgb(255, 255, 255);
+  text-shadow:
+  -1px -1px 0 #000, /* Sombra superior esquerda */
+  1px -1px 0 #000,  /* Sombra superior direita */
+  -1px 1px 0 #000,  /* Sombra inferior esquerda */
+  1px 1px 0 #000;   /* Sombra inferior direita */
+}
+
+.progressoModerado {
+  font-weight: bold;
+  position: absolute;
+  top: 25%;
+  left: 51%;
+  color: rgb(255, 255, 255);
+  text-shadow:
+  -1px -1px 0 #000, /* Sombra superior esquerda */
+  1px -1px 0 #000,  /* Sombra superior direita */
+  -1px 1px 0 #000,  /* Sombra inferior esquerda */
+  1px 1px 0 #000;   /* Sombra inferior direita */
+}
+
+.progressoExperiente {
+  font-weight: bold;
+  position: absolute;
+  top: 48%;
+  left: 51%;
+  color: rgb(255, 255, 255);
+  text-shadow:
+  -1px -1px 0 #000, /* Sombra superior esquerda */
+  1px -1px 0 #000,  /* Sombra superior direita */
+  -1px 1px 0 #000,  /* Sombra inferior esquerda */
+  1px 1px 0 #000;   /* Sombra inferior direita */
+}
+
+.progressoMestre {
+  font-weight: bold;
+  position: absolute;
+  top: 71%;
+  left: 51%;
+  color: rgb(255, 255, 255);
+  text-shadow:
+  -1px -1px 0 #000, /* Sombra superior esquerda */
+  1px -1px 0 #000,  /* Sombra superior direita */
+  -1px 1px 0 #000,  /* Sombra inferior esquerda */
+  1px 1px 0 #000;   /* Sombra inferior direita */
+}
+
+@keyframes jump {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-20px);
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+}
+
+
+.jumping-image {
+  transition: transform 0.5s ease; /* Adiciona uma transição suave para a animação */
+  backface-visibility: hidden; /* Corrige o problema de embaçamento */
+}
+
+
+.buttonIniciante:hover .jumping-image,
+.buttonModerado:hover .jumping-image,
+.buttonExperiente:hover .jumping-image,
+.buttonMestre:hover .jumping-image {
+  animation: jump 1s; /* Aplica a animação de pulo quando o botão é hover */
 }
