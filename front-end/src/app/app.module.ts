@@ -10,6 +10,7 @@ import { PokedexComponent } from './pokedex/pokedex.component';
 import { MenuDificuldadeComponent } from './menu-dificuldade/menu-dificuldade.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AjudaComponent } from './ajuda/ajuda.component';
+import { BatalhaComponent } from './batalha/batalha.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AjudaComponent } from './ajuda/ajuda.component';
     PokedexComponent,
     MenuDificuldadeComponent,
     AjudaComponent,
+    BatalhaComponent,
   ],
   imports: [
     BrowserModule,
