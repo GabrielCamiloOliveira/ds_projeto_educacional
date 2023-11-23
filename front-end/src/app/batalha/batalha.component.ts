@@ -22,8 +22,8 @@ export class BatalhaComponent implements OnInit {
     console.log(this.generateExpression(dificuldade));
     });
   }
-
   
+
   ////////////////////////////////////////////////////// ARMAZENANDO VARIÁVEIS //////////////////////////////////////////////////////
 
   
@@ -53,15 +53,22 @@ export class BatalhaComponent implements OnInit {
     }
   
     const expression = this.generateRandomExpression(numOperators, maxNumber);
-    const correctResult = this.evaluateExpression(expression);
-    const fakeResults = this.generateFakeResults(correctResult);
+    let correctResult: number = 0; // Inicializando com um valor padrão
+    let fakeResults: number[] = [];
   
-    //console.log('Expressão gerada:', expression); // Move a impressão para após a avaliação
+    try {
+      correctResult = this.evaluateExpression(expression);
+      fakeResults = this.generateFakeResults(correctResult);
+    } catch (error) {
+      console.error('Erro ao avaliar a expressão:', expression, error);
+    }
+  
+    //console.log('Expressão gerada:', expression);
     //console.log('Resultado correto:', correctResult);
   
     return { expression, correctResult, fakeResults };
   }
-
+  
   
   ////////////////////////////////////////////////////// ALGORITMO DE EXPRESSÕES //////////////////////////////////////////////////////
 
@@ -81,7 +88,7 @@ export class BatalhaComponent implements OnInit {
 
   private getRandomOperator(): string {
     const operators = ['+', '-', '*', '/']; //falta implementar com potência e raiz
-    return operators[this.getRandomInt(0, operators.length)];
+    return operators[this.getRandomInt(0, operators.length-1)];
   }
 
 

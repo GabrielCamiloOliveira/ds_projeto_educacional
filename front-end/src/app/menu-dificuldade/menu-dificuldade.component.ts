@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DificuldadeService } from '../services/dificuldade.service';
+import { SharedExpressionService } from '../services/shared-expression.service';
 
 @Component({
   selector: 'app-menu-dificuldade',
