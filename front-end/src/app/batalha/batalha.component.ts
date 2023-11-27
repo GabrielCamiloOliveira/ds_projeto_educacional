@@ -1,26 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DificuldadeService } from '../services/dificuldade.service';
 import * as math from 'mathjs';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-batalha',
   templateUrl: './batalha.component.html',
   styleUrls: ['./batalha.component.scss']
 })
-export class BatalhaComponent implements OnInit {
+export class BatalhaComponent implements OnInit, OnDestroy {
 
   dificuldadeSelecionada!: string;
+  dificuldadeSubscription: Subscription | undefined;
 
   constructor(private router: Router, private dificuldadeService: DificuldadeService) {}
 
   ngOnInit(): void {
 
-    // Obtém a dificuldade do serviço
-    this.dificuldadeService.getDificuldade().subscribe(dificuldade => {
-    this.dificuldadeSelecionada = dificuldade;
-    console.log(this.generateExpression(dificuldade));
-    });
+        // Cancela inscrição anterior se existir
+        if (this.dificuldadeSubscription) {
+          this.dificuldadeSubscription.unsubscribe();
+        }
+    
+        // Obtém a dificuldade do serviço
+        this.dificuldadeSubscription = this.dificuldadeService.getDificuldade().subscribe(dificuldade => {
+          this.dificuldadeSelecionada = dificuldade;
+          console.log(this.generateExpression(dificuldade));
+        });
+  }
+
+  ngOnDestroy(): void {
+    // Cancela a inscrição ao destruir o componente
+    if (this.dificuldadeSubscription) {
+      this.dificuldadeSubscription.unsubscribe();
+    }
   }
   
 

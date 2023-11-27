@@ -22,6 +22,8 @@ body, html {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    filter: brightness(35%); /* Altere o valor conforme necessário */
+    filter: blur(10px);
   }
 
   .buttonIniciante {
@@ -274,11 +276,11 @@ body, html {
 }
 
 .block-border {
-  background-color: rgb(50,50,50);
+  background-color: rgb(85, 85, 85);
 }
 
 .block-meter {
-  background-color: rgb(77, 2, 252);
+  background-color: rgb(2, 252, 35);
 }
 
 .block-border:nth-of-type(1) {
