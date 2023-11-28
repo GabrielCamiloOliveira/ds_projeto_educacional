@@ -22,6 +22,8 @@ body, html {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    filter: brightness(35%); /* Altere o valor conforme necessário */
+    filter: blur(10px);
   }
 
   .buttonIniciante {
@@ -85,7 +87,7 @@ body, html {
     top: 24%;
     position: absolute;
     left: 65%;
-    height: 60%;
+    height: 70%;
     display: block;
   }
 
@@ -93,21 +95,21 @@ body, html {
     top: 5%;
     position: absolute;
     left: 60%;
-    height: 90%;
+    height: 100%;
   }
 
   .gengarimg {
-    top: 10%;
+    top: -2%;
     position: absolute;
-    left: 62%;
-    height: 90%;
+    left: 58%;
+    height: 120%;
   }
 
   .moltresimg {
-    top: 5%;
+    top: -7%;
     position: absolute;
-    left: 64%;
-    height: 90%;
+    left: 52%;
+    height: 120%;
   }
 
   @keyframes blink {
@@ -206,7 +208,6 @@ body, html {
   top: 42%;
 }
 
-/* No seu arquivo de estilo SCSS */
 .return-button {
   font-family: 'Pokemon';
   font-size: 60%;
@@ -275,11 +276,11 @@ body, html {
 }
 
 .block-border {
-  background-color: rgb(50,50,50);
+  background-color: rgb(85, 85, 85);
 }
 
 .block-meter {
-  background-color: rgb(77, 2, 252);
+  background-color: rgb(2, 252, 35);
 }
 
 .block-border:nth-of-type(1) {
@@ -385,52 +386,36 @@ body, html {
   font-weight: bold; /* Peso da fonte */
   position: absolute;
   top: 2%;
-  left: 51%;
+  left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5); //deslocamento vertical, horizontal e desfoque da sombra
 }
 
 .progressoModerado {
   font-weight: bold;
   position: absolute;
   top: 25%;
-  left: 51%;
+  left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 .progressoExperiente {
   font-weight: bold;
   position: absolute;
   top: 48%;
-  left: 51%;
+  left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 .progressoMestre {
   font-weight: bold;
   position: absolute;
   top: 71%;
-  left: 51%;
+  left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes jump {
