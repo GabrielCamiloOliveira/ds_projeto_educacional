@@ -12,10 +12,10 @@ import { trigger, state, style, animate, transition, group, query } from '@angul
         group([
           query(':enter', [
             style({ opacity: 0, transform: 'translateX(100%)' }),
-            animate('300ms ease-out', style({ opacity: 1, transform: 'translateX(0%)' })),
+            animate('300ms ease', style({ opacity: 1, transform: 'translateX(0%)' })),
           ], { optional: true }),
           query(':leave', [
-            animate('300ms ease-out', style({ opacity: 0, transform: 'translateX(-100%)' })),
+            animate('300ms ease', style({ opacity: 0, transform: 'translateX(-100%)' })),
           ], { optional: true }),
         ]),
       ]),

@@ -1,157 +1,189 @@
 body, html {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  .background-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .background-image {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
 
-  .buttonAjuda,
-  .buttonColecao,
-  .buttonExercicios,
-  .buttonAprender {
-    box-sizing: border-box;
-    animation: blink 1s infinite alternate; /* Aplica a animação de piscar constantemente */
-    transition: opacity 1s ease; /* Adiciona uma transição de opacidade */
-    z-index: 2;
+.background-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.buttonAjuda,
+.buttonColecao,
+.buttonExercicios,
+.buttonAprender {
+  box-sizing: border-box;
+  animation: blink 1s infinite alternate; /* Aplica a animação de piscar constantemente */
+  transition: opacity 1s ease; /* Adiciona uma transição de opacidade */
+  z-index: 2;
+}
+
+.buttonAjuda {
+  background: url('/assets/images/ajuda.png') no-repeat;
+  position: absolute;
+  top: 20%;
+  left: 82.5%;
+  width: 15%;
+  height: 11%;
+  border: none;
+  cursor: pointer;
+  background-size: contain;
+
+  &:hover {
+      ~ .grupo-imagens,
+      ~.background-image {
+          filter: brightness(40%);
+      }
+      ~.pokecenter {
+        filter: brightness(100%);
+      }
   }
-  
-  .buttonAjuda {
-    background: url('/assets/images/ajuda.png') no-repeat;
-    position: absolute;
-    top: 20%;
-    left: 82.5%;
-    width: 15%; /* Ajuste diretamente as dimensões do botão */
-    height: 11%;
-    border: none;
-    cursor: pointer;
-    background-size: contain;
+}
+
+.buttonColecao {
+  background: url('/assets/images/colecao.png') no-repeat;
+  position: absolute;
+  top: 18%;
+  left: 6%;
+  width: 17%;
+  height: 12%;
+  border: none;
+  cursor: pointer;
+  background-size: contain;
+
+  &:hover {
+      ~ .grupo-imagens,
+      ~.background-image {
+          filter: brightness(40%);
+      }
+      ~.predioUrban {
+        filter: brightness(100%);
+      }
   }
-  
-  .buttonColecao {
-    background: url('/assets/images/colecao.png') no-repeat;
-    position: absolute;
-    top: 18%;
-    left: 5.8%;
-    width: 17%;
-    height: 12%;
-    border: none;
-    cursor: pointer;
-    background-size: contain;
+}
+
+.buttonExercicios {
+  background: url('/assets/images/exercicios.png') no-repeat;
+  position: absolute;
+  top: 55%;
+  left: 54%;
+  width: 17.5%;
+  height: 12.5%;
+  border: none;
+  cursor: pointer;
+  background-size: contain;
+
+  &:hover {
+    ~ .grupo-imagens,
+    ~.background-image {
+          filter: brightness(40%);
+      }
+      ~.cassino {
+        filter: brightness(100%);
+      }
   }
-  
-  .buttonExercicios {
-    background: url('/assets/images/exercicios.png') no-repeat;
-    position: absolute;
-    top: 55%;
-    left: 54%;
-    width: 17.5%;
-    height: 12.5%;
-    border: none;
-    cursor: pointer;
-    background-size: contain;
+}
+
+.buttonAprender {
+  background: url('/assets/images/aprender.png') no-repeat;
+  position: absolute;
+  top: 12%;
+  left: 42.2%;
+  width: 18%;
+  height: 13%;
+  border: none;
+  cursor: pointer;
+  background-size: contain;
+
+  &:hover {
+      ~ .grupo-imagens,
+      ~.background-image {
+          filter: brightness(40%);
+      }
+      ~.predioMenor {
+        filter: brightness(100%);
+      }
   }
-  
-  .buttonAprender {
-    background: url('/assets/images/aprender.png') no-repeat;
-    position: absolute;
-    top: 12%;
-    left: 42.2%;
-    width: 18%;
-    height: 13%;
-    border: none;
-    cursor: pointer;
-    background-size: contain;
-  }
-  
-  @keyframes blink {
-    from {
+}
+
+@keyframes blink {
+  from {
       opacity: 0.6;
-    }
-    to {
+  }
+  to {
       opacity: 1.0;
-    }
   }
-  
-  .buttonAjuda:hover,
-  .buttonColecao:hover,
-  .buttonExercicios:hover,
-  .buttonAprender:hover {
-    transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
-    cursor: pointer;
-  }
-  
-  .audiocontroller {
-    position: absolute;
-    top: 2%;
-    left: 1%;
-  }
+}
 
-  .predioUrban {
-    position: absolute;
-    top: 16%;
-    left: 4.6%;
-    width: 19.3%;
-    height: 40%;
-    border: none;
-    background-size: contain;
-    z-index: 1;
+.audiocontroller {
+  position: absolute;
+  top: 2%;
+  left: 1%;
+}
 
-  }
+.predioUrban {
+  position: absolute;
+  top: 16%;
+  left: 4.6%;
+  width: 19.3%;
+  height: 40%;
+  border: none;
+  background-size: contain;
+  z-index: 1;
+}
 
-  .predioMenor {
-    position: absolute;
-    top: 12.5%;
-    left: 42.4%;
-    width: 17.5%;
-    height: 32%;
-    border: none;
-    background-size: contain;
-    z-index: 1;
-  }
+.predioMenor {
+  position: absolute;
+  top: 12.5%;
+  left: 42.4%;
+  width: 17.5%;
+  height: 32%;
+  border: none;
+  background-size: contain;
+  z-index: 1;
+}
 
-  .pokecenter {
-    position: absolute;
-    top: 25%;
-    left: 84.5%;
-    width: 10.8%;
-    height: 19%;
-    border: none;
-    background-size: contain;
-    z-index: 1;
-  }
+.pokecenter {
+  position: absolute;
+  top: 25%;
+  left: 84.5%;
+  width: 10.8%;
+  height: 19%;
+  border: none;
+  background-size: contain;
+  z-index: 1;
+}
 
-  .cassino {
-    position: absolute;
-    top: 64.8%;
-    left: 52%;
-    width: 22%;
-    height: 19%;
-    border: none;
-    background-size: contain;
-    z-index: 1;
-  }
+.cassino {
+  position: absolute;
+  top: 64.8%;
+  left: 52%;
+  width: 22%;
+  height: 19%;
+  border: none;
+  background-size: contain;
+  z-index: 1;
+}
 
-  .buttonAjuda:hover,
-  .buttonColecao:hover,
-  .buttonExercicios:hover,
-  .buttonAprender:hover {
-    filter:brightness(40%);
-  }
+.buttonAjuda:hover,
+.buttonColecao:hover,
+.buttonExercicios:hover,
+.buttonAprender:hover {
+  transform: scale(1.1); /* Aumenta o tamanho ao passar o mouse */
+  cursor: pointer;
+}

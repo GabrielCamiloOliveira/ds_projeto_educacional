@@ -10,6 +10,7 @@ import { NavigationEnd, Router } from '@angular/router';
 export class MenucomponentComponent implements AfterViewInit {
 
   isMenuVisible = true;
+  MenuText = "Menu Principal";
   @Output() menuButtonClick = new EventEmitter<string>();
 
   constructor(private router: Router) {
