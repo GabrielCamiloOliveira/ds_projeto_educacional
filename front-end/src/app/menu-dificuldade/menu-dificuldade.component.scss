@@ -388,11 +388,7 @@ body, html {
   top: 2%;
   left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5); //deslocamento vertical, horizontal e desfoque da sombra
 }
 
 .progressoModerado {
@@ -401,11 +397,7 @@ body, html {
   top: 25%;
   left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 .progressoExperiente {
@@ -414,11 +406,7 @@ body, html {
   top: 48%;
   left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 .progressoMestre {
@@ -427,11 +415,7 @@ body, html {
   top: 71%;
   left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes jump {

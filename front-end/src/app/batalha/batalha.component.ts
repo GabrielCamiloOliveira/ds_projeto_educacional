@@ -13,6 +13,8 @@ export class BatalhaComponent implements OnInit, OnDestroy {
 
   dificuldadeSelecionada!: string;
   dificuldadeSubscription: Subscription | undefined;
+  enunciado = "Assinale o resultado da expressao:";
+  expressao!: String;
 
   constructor(private router: Router, private dificuldadeService: DificuldadeService) {}
 
@@ -26,7 +28,7 @@ export class BatalhaComponent implements OnInit, OnDestroy {
         // Obtém a dificuldade do serviço
         this.dificuldadeSubscription = this.dificuldadeService.getDificuldade().subscribe(dificuldade => {
           this.dificuldadeSelecionada = dificuldade;
-          console.log(this.generateExpression(dificuldade));
+          console.log(this.expressao = this.generateExpression(dificuldade).expression);
         });
   }
 
