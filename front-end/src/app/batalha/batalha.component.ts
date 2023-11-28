@@ -3,6 +3,7 @@ import { DificuldadeService } from '../services/dificuldade.service';
 import * as math from 'mathjs';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { PokeapiService } from '../services/pokeapi.service';
 
 @Component({
   selector: 'app-batalha',
@@ -16,7 +17,7 @@ export class BatalhaComponent implements OnInit, OnDestroy {
   enunciado = "Assinale o resultado da expressao:";
   expressao!: String;
 
-  constructor(private router: Router, private dificuldadeService: DificuldadeService) {}
+  constructor(private router: Router, private dificuldadeService: DificuldadeService, private pokeapiService: PokeapiService) {}
 
   ngOnInit(): void {
 
@@ -46,23 +47,33 @@ export class BatalhaComponent implements OnInit, OnDestroy {
   generateExpression(level: string): { expression: string; correctResult: number; fakeResults: number[] } {
     let numOperators: number;
     let maxNumber: number;
+    let startId: number;
+    let endId: number;
   
     switch (level) {
       case 'Iniciante':
         numOperators = this.getRandomInt(2, 4);
-        maxNumber = 20;
+        maxNumber = 10;
+        startId = 1;
+        endId = 36;
         break;
       case 'Moderado':
         numOperators = this.getRandomInt(3, 6);
-        maxNumber = 35;
+        maxNumber = 15;
+        startId = 37;
+        endId = 73;
         break;
       case 'Experiente':
         numOperators = this.getRandomInt(4, 7);
-        maxNumber = 60;
+        maxNumber = 20;
+        startId = 74;
+        endId = 111;
         break;
       case 'Mestre':
         numOperators = this.getRandomInt(5, 8);
-        maxNumber = 100;
+        maxNumber = 30;
+        startId = 112;
+        endId = 151;
         break;
       default:
         throw new Error('Nível inválido.');
@@ -79,8 +90,12 @@ export class BatalhaComponent implements OnInit, OnDestroy {
       console.error('Erro ao avaliar a expressão:', expression, error);
     }
   
-    //console.log('Expressão gerada:', expression);
-    //console.log('Resultado correto:', correctResult);
+    // Obtém um Pokémon aleatório com base na dificuldade
+    this.pokeapiService.getPokemonRandomInRange(startId, endId).subscribe((pokemon: any) => {
+    const pokemonSprite = pokemon.sprites.front_default;
+    console.log('Sprite do Pokémon:', pokemonSprite);
+    // Agora você pode exibir o sprite na tela
+  });
   
     return { expression, correctResult, fakeResults };
   }
