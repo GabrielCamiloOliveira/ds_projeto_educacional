@@ -84,3 +84,48 @@ body, html {
     left: 8.4%;
     color:#FFFFFF;
   }
+
+  .enemyImg {
+    width: 25%;
+    height: 45%;
+    position: absolute;
+    top: 18%;
+    left: 54%;
+    z-index: -1;
+  }
+
+  .resposta1 {
+    font-family: 'Pokemon';
+    font-size: 115%;
+    position: absolute;
+    top: 78.5%;
+    left: 52%;
+    color:#000000;
+  }
+
+  .resposta2 {
+    font-family: 'Pokemon';
+    font-size: 115%;
+    position: absolute;
+    top: 78.5%;
+    left: 69%;
+    color:#000000;
+  }
+
+  .resposta3 {
+    font-family: 'Pokemon';
+    font-size: 115%;
+    position: absolute;
+    top: 89%;
+    left: 52%;
+    color:#000000;
+  }
+
+  .resposta4 {
+    font-family: 'Pokemon';
+    font-size: 115%;
+    position: absolute;
+    top: 89%;
+    left: 69%;
+    color:#000000;  
+  }

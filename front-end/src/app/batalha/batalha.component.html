@@ -5,8 +5,17 @@
     <img src='.\assets\images\battlebox.png' class="battlebox">
     <img src='.\assets\images\lifebarEnemy.png' class="lifeEnemy">
     <img src='.\assets\images\lifebarUser.png' class="lifeUser">
+
     <span class="enunciado"> {{ enunciado }} </span>
     <span class="expressao"> {{ expressao }} </span>
+
+    <img src="{{ enemyPokemon }}" class="enemyImg">
+
+    <button class="resposta1" (click)="handleButtonClick('{{resposta1}}')">{{resposta1}}</button>
+    <button class="resposta2" (click)="handleButtonClick('{{resposta2}}')">{{resposta2}}</button>    
+    <button class="resposta3" (click)="handleButtonClick('{{resposta3}}')">{{resposta3}}</button>
+    <button class="resposta4" (click)="handleButtonClick('{{resposta4}}')">{{resposta4}}</button>
+        
 
     <button class="return-button" (click)="retornarHome()">Retornar</button>
 </div>

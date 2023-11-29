@@ -11,11 +11,21 @@ import { PokeapiService } from '../services/pokeapi.service';
   styleUrls: ['./batalha.component.scss']
 })
 export class BatalhaComponent implements OnInit, OnDestroy {
+handleButtonClick(arg0: string) {
+throw new Error('Method not implemented.');
+}
 
   dificuldadeSelecionada!: string;
   dificuldadeSubscription: Subscription | undefined;
+
   enunciado = "Assinale o resultado da expressao:";
   expressao!: String;
+  enemyPokemon!: String;
+
+  resposta1!: number;
+  resposta2!: number;
+  resposta3!: number;
+  resposta4!: number;
 
   constructor(private router: Router, private dificuldadeService: DificuldadeService, private pokeapiService: PokeapiService) {}
 
@@ -28,8 +38,8 @@ export class BatalhaComponent implements OnInit, OnDestroy {
     
         // Obtém a dificuldade do serviço
         this.dificuldadeSubscription = this.dificuldadeService.getDificuldade().subscribe(dificuldade => {
-          this.dificuldadeSelecionada = dificuldade;
-          console.log(this.expressao = this.generateExpression(dificuldade).expression);
+        this.dificuldadeSelecionada = dificuldade;
+        console.log(this.expressao = this.generateExpression(dificuldade).expression);
         });
   }
 
@@ -94,9 +104,15 @@ export class BatalhaComponent implements OnInit, OnDestroy {
     this.pokeapiService.getPokemonRandomInRange(startId, endId).subscribe((pokemon: any) => {
     const pokemonSprite = pokemon.sprites.front_default;
     console.log('Sprite do Pokémon:', pokemonSprite);
+    this.enemyPokemon = pokemonSprite;
     // Agora você pode exibir o sprite na tela
   });
-  
+
+    this.resposta1 = fakeResults[0];
+    this.resposta2 = fakeResults[1];
+    this.resposta3 = fakeResults[2];
+    this.resposta4 = fakeResults[3];
+    
     return { expression, correctResult, fakeResults };
   }
   
