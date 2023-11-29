@@ -27,6 +27,10 @@ throw new Error('Method not implemented.');
   resposta3!: number;
   resposta4!: number;
 
+  enemyname!: string;
+
+  username = "Usuário";
+
   constructor(private router: Router, private dificuldadeService: DificuldadeService, private pokeapiService: PokeapiService) {}
 
   ngOnInit(): void {
@@ -89,22 +93,29 @@ throw new Error('Method not implemented.');
         throw new Error('Nível inválido.');
     }
   
-    const expression = this.generateRandomExpression(numOperators, maxNumber);
+    let expression: string;
     let correctResult: number = 0; // Inicializando com um valor padrão
     let fakeResults: number[] = [];
   
-    try {
-      correctResult = this.evaluateExpression(expression);
+    do {
+      expression = this.generateRandomExpression(numOperators, maxNumber);
+
+      try {
+        correctResult = this.evaluateExpression(expression);
+      } catch (error) {
+        console.error('Erro ao avaliar a expressão:', expression, error);
+        continue; // Gera uma nova expressão se ocorrer um erro na avaliação
+      }
+
       fakeResults = this.generateFakeResults(correctResult);
-    } catch (error) {
-      console.error('Erro ao avaliar a expressão:', expression, error);
-    }
+    } while (this.hasMoreThanTwoDecimalPlaces(correctResult));
   
     // Obtém um Pokémon aleatório com base na dificuldade
     this.pokeapiService.getPokemonRandomInRange(startId, endId).subscribe((pokemon: any) => {
     const pokemonSprite = pokemon.sprites.front_default;
     console.log('Sprite do Pokémon:', pokemonSprite);
     this.enemyPokemon = pokemonSprite;
+    this.enemyname = this.capitalizeFirstLetter(pokemon.name);
     // Agora você pode exibir o sprite na tela
   });
 
@@ -112,7 +123,7 @@ throw new Error('Method not implemented.');
     this.resposta2 = fakeResults[1];
     this.resposta3 = fakeResults[2];
     this.resposta4 = fakeResults[3];
-    
+
     return { expression, correctResult, fakeResults };
   }
   
@@ -181,6 +192,13 @@ throw new Error('Method not implemented.');
     return array;
   }
 
+  private hasMoreThanTwoDecimalPlaces(result: number): boolean {
+    const decimalPart = result.toString().split('.')[1];
+  
+    return !!(decimalPart && decimalPart.length > 2);
+  }
+  
+
 
   ////////////////////////////////////////////////////// MÉTODO DE RETORNO //////////////////////////////////////////////////////
 
@@ -188,4 +206,13 @@ throw new Error('Method not implemented.');
   retornarHome(): void {
     this.router.navigate(['/menu-dificuldade']); //
   }
+
+
+  ////////////////////////////////////////////////////// MÉTODO UPPERCASE //////////////////////////////////////////////////////
+
+
+  capitalizeFirstLetter(str: string): string {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 }
+
