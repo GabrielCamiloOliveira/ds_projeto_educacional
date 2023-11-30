@@ -323,12 +323,10 @@ body, html {
   }
 }
 
-
 .jumping-image {
   transition: transform 0.5s ease; /* Adiciona uma transição suave para a animação */
   backface-visibility: hidden; /* Corrige o problema de embaçamento */
 }
-
 
 .buttonIniciante:hover .jumping-image,
 .buttonModerado:hover .jumping-image,
@@ -336,7 +334,6 @@ body, html {
 .buttonMestre:hover .jumping-image {
   animation: jump 1s; /* Aplica a animação de pulo quando o botão é hover */
 }
-
 
 #center {
   width: 600px;
@@ -401,4 +398,14 @@ body, html {
   50% {width: 140px;}
   75% {width: 360px;}
 	100% {width: 400px;}
+}
+
+.image-pixel-art {
+  image-rendering: optimizeSpeed;             /* IE */
+  image-rendering: -moz-crisp-edges;          /* Firefox */
+  image-rendering: -o-crisp-edges;            /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (Chrome) */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed */
+  image-rendering: crisp-edges;               /* CSS4 Proposed */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE (fallback) */
 }
