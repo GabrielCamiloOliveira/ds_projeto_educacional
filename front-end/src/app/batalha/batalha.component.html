@@ -10,11 +10,12 @@
     <span class="expressao"> {{ expressao }} </span>
 
     <img src="{{ enemyPokemon }}" class="jumping-image image-pixel-art enemyImg">
+    <img src="{{ userPokemon }}" class="jumping-image image-pixel-art userImg">
 
-    <button class="resposta1" (click)="handleButtonClick('{{resposta1}}')">{{resposta1}}</button>
-    <button class="resposta2" (click)="handleButtonClick('{{resposta2}}')">{{resposta2}}</button>    
-    <button class="resposta3" (click)="handleButtonClick('{{resposta3}}')">{{resposta3}}</button>
-    <button class="resposta4" (click)="handleButtonClick('{{resposta4}}')">{{resposta4}}</button>
+    <button class="resposta1" (click)="handleButtonClick(resposta1)">{{resposta1}}</button>
+    <button class="resposta2" (click)="handleButtonClick(resposta2)">{{resposta2}}</button>
+    <button class="resposta3" (click)="handleButtonClick(resposta3)">{{resposta3}}</button>
+    <button class="resposta4" (click)="handleButtonClick(resposta4)">{{resposta4}}</button>
         
     <span class="username"> {{ username }} </span>
     <span class="enemyname"> {{ enemyname }} </span>

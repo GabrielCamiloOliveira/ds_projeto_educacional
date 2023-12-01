@@ -5,6 +5,7 @@ import { PokedexComponent } from './pokedex/pokedex.component';
 import { MenuDificuldadeComponent } from './menu-dificuldade/menu-dificuldade.component';
 import { BatalhaComponent } from './batalha/batalha.component';
 import { BatalhaGuard } from './guards/batalha.guard';
+import { AjudaComponent } from './ajuda/ajuda.component';
 
 const routes: Routes = [
 
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'pokedex', component: PokedexComponent },
   { path: 'menu-dificuldade', component: MenuDificuldadeComponent },
   { path: 'batalha', component: BatalhaComponent, canActivate: [BatalhaGuard] },
+  { path: 'ajuda', component: AjudaComponent}
 ];
 
 @NgModule({

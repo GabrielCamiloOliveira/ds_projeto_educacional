@@ -11,9 +11,17 @@ import { PokeapiService } from '../services/pokeapi.service';
   styleUrls: ['./batalha.component.scss']
 })
 export class BatalhaComponent implements OnInit, OnDestroy {
-handleButtonClick(arg0: string) {
-throw new Error('Method not implemented.');
-}
+
+  handleButtonClick(resposta: number): void {
+    const respostaCorreta = this.verificarResposta(resposta);
+
+    if (respostaCorreta) {
+      console.log('Resposta correta!');
+    } else {
+      console.log('Resposta incorreta. Gerando nova expressão...');
+      this.regenerarExpressao();
+    }
+  }
 
   dificuldadeSelecionada!: string;
   dificuldadeSubscription: Subscription | undefined;
@@ -28,23 +36,53 @@ throw new Error('Method not implemented.');
   resposta4!: number;
 
   enemyname!: string;
+  startId!: number;
+  endId!: number;
 
   username = "Usuário";
+  userPokemon = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"
+  correctResult: number = 0;
 
   constructor(private router: Router, private dificuldadeService: DificuldadeService, private pokeapiService: PokeapiService) {}
 
   ngOnInit(): void {
 
-        // Cancela inscrição anterior se existir
-        if (this.dificuldadeSubscription) {
-          this.dificuldadeSubscription.unsubscribe();
-        }
+      // Cancela inscrição de dificuldade anterior se existir = gerar apenas 1 expressão ao iniciar
+      if (this.dificuldadeSubscription) {
+        this.dificuldadeSubscription.unsubscribe();
+      }
     
-        // Obtém a dificuldade do serviço
-        this.dificuldadeSubscription = this.dificuldadeService.getDificuldade().subscribe(dificuldade => {
-        this.dificuldadeSelecionada = dificuldade;
-        console.log(this.expressao = this.generateExpression(dificuldade).expression);
-        });
+      // Obtém e classifica a dificuldade do serviço
+      this.dificuldadeSubscription = this.dificuldadeService.getDificuldade().subscribe(dificuldade => {
+      this.dificuldadeSelecionada = dificuldade;
+      console.log(this.expressao = this.generateExpression(dificuldade).expression);
+      
+      if (dificuldade == "Iniciante") {
+        this.startId = 1;
+        this.endId = 36;
+      }
+      else if (dificuldade == "Moderado") {
+        this.startId = 37;
+        this.endId = 73;
+      }
+      else if (dificuldade == "Experiente") {
+        this.startId = 74;
+        this.endId = 111;
+      }
+      else {
+        this.startId = 115;
+        this.endId = 151;
+      }
+      });
+
+      // Obtém um Pokémon aleatório com base na dificuldade
+      this.pokeapiService.getPokemonRandomInRange(this.startId, this.endId).subscribe((pokemon: any) => {
+      const pokemonSprite = pokemon.sprites.versions['generation-v']['black-white'].animated.front_default;
+      console.log('Sprite do Pokémon:', pokemonSprite);
+      this.enemyPokemon = pokemonSprite;
+      this.enemyname = this.capitalizeFirstLetter(pokemon.name);
+      // Agora você pode exibir o sprite na tela
+    });
   }
 
   ngOnDestroy(): void {
@@ -61,33 +99,23 @@ throw new Error('Method not implemented.');
   generateExpression(level: string): { expression: string; correctResult: number; fakeResults: number[] } {
     let numOperators: number;
     let maxNumber: number;
-    let startId: number;
-    let endId: number;
   
     switch (level) {
       case 'Iniciante':
         numOperators = this.getRandomInt(2, 4);
         maxNumber = 10;
-        startId = 1;
-        endId = 36;
         break;
       case 'Moderado':
         numOperators = this.getRandomInt(3, 6);
         maxNumber = 15;
-        startId = 37;
-        endId = 73;
         break;
       case 'Experiente':
         numOperators = this.getRandomInt(4, 7);
         maxNumber = 20;
-        startId = 74;
-        endId = 111;
         break;
       case 'Mestre':
         numOperators = this.getRandomInt(5, 8);
         maxNumber = 30;
-        startId = 112;
-        endId = 151;
         break;
       default:
         throw new Error('Nível inválido.');
@@ -96,34 +124,29 @@ throw new Error('Method not implemented.');
     let expression: string;
     let correctResult: number = 0; // Inicializando com um valor padrão
     let fakeResults: number[] = [];
+
+    expression = this.generateRandomExpression(numOperators, maxNumber);
+
+    try {
+      correctResult = this.evaluateExpression(expression);
   
-    do {
-      expression = this.generateRandomExpression(numOperators, maxNumber);
-
-      try {
-        correctResult = this.evaluateExpression(expression);
-      } catch (error) {
-        console.error('Erro ao avaliar a expressão:', expression, error);
-        continue; // Gera uma nova expressão se ocorrer um erro na avaliação
-      }
-
-      fakeResults = this.generateFakeResults(correctResult);
-    } while (this.hasMoreThanTwoDecimalPlaces(correctResult));
+      // Arredonda para 2 casas decimais se houver dízima periódica
+      correctResult = Number(correctResult.toFixed(2));
+    } catch (error) {
+      console.error('Erro ao avaliar a expressão:', expression, error);
+      throw new Error('Erro na geração de expressão.');
+    }
   
-    // Obtém um Pokémon aleatório com base na dificuldade
-    this.pokeapiService.getPokemonRandomInRange(startId, endId).subscribe((pokemon: any) => {
-    const pokemonSprite = pokemon.sprites.front_default;
-    console.log('Sprite do Pokémon:', pokemonSprite);
-    this.enemyPokemon = pokemonSprite;
-    this.enemyname = this.capitalizeFirstLetter(pokemon.name);
-    // Agora você pode exibir o sprite na tela
-  });
-
+    // Gera e arredonda os resultados falsos para 2 casas decimais
+    fakeResults = this.generateFakeResults(correctResult);
+    fakeResults = fakeResults.map(result => Number(result.toFixed(2)));
+  
     this.resposta1 = fakeResults[0];
     this.resposta2 = fakeResults[1];
     this.resposta3 = fakeResults[2];
     this.resposta4 = fakeResults[3];
-
+    this.correctResult = correctResult;
+  
     return { expression, correctResult, fakeResults };
   }
   
@@ -192,13 +215,6 @@ throw new Error('Method not implemented.');
     return array;
   }
 
-  private hasMoreThanTwoDecimalPlaces(result: number): boolean {
-    const decimalPart = result.toString().split('.')[1];
-  
-    return !!(decimalPart && decimalPart.length > 2);
-  }
-  
-
 
   ////////////////////////////////////////////////////// MÉTODO DE RETORNO //////////////////////////////////////////////////////
 
@@ -215,5 +231,13 @@ throw new Error('Method not implemented.');
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
   
+
+  verificarResposta(respostaSelecionada: number): boolean {
+    return respostaSelecionada === this.correctResult;
+  }
+
+  regenerarExpressao(): void {
+    this.expressao = this.generateExpression(this.dificuldadeSelecionada).expression
+  }
 }
 

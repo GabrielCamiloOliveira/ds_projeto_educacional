@@ -86,13 +86,23 @@ body, html {
   }
 
   .enemyImg {
+    width: 15%;
+    height: 25%;
+    position: absolute;
+    top: 29%;
+    left: 60%;
+    z-index: -1;
+    animation: jump 3s;
+  }
+
+  .userImg {
     width: 25%;
     height: 45%;
     position: absolute;
-    top: 18%;
-    left: 54%;
+    top: 44%;
+    left: 14%;
     z-index: -1;
-    animation: jump 3s;
+    animation: slide-in 3s;
   }
 
   .resposta1 {
@@ -104,7 +114,8 @@ body, html {
     left: 52%;
     color:#000000;
     border: none;
-    background-color: #FFFFFF;
+    background-color: #f8f8f8;
+    cursor: pointer;
   }
 
   .resposta2 {
@@ -116,7 +127,8 @@ body, html {
     left: 69%;
     color:#000000;
     border: none;
-    background-color: #FFFFFF;
+    background-color: #f8f8f8;
+    cursor: pointer;
   }
 
   .resposta3 {
@@ -128,7 +140,8 @@ body, html {
     left: 52%;
     color:#000000;
     border: none;
-    background-color: #FFFFFF;
+    background-color: #f8f8f8;
+    cursor: pointer;
   }
 
   .resposta4 {
@@ -138,9 +151,10 @@ body, html {
     position: absolute;
     top: 88.8%;
     left: 69%;
-    color:#000000;  
+    color:#000000;
     border: none;
-    background-color: #FFFFFF;
+    background-color: #f8f8f8;
+    cursor: pointer;
   }
 
   .username {
@@ -150,7 +164,7 @@ body, html {
     position: absolute;
     top: 53.5%;
     left: 55.2%;
-    color:#000000;  
+    color:#000000;
   }
 
   .enemyname {
@@ -160,7 +174,7 @@ body, html {
     position: absolute;
     top: 10.5%;
     left: 13%;
-    color:#000000;  
+    color:#000000;
   }
 
   .jumping-image {
@@ -189,3 +203,4 @@ body, html {
     image-rendering: crisp-edges;               /* CSS4 Proposed */
     -ms-interpolation-mode: nearest-neighbor;   /* IE (fallback) */
   }
+

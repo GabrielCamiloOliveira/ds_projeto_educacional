@@ -30,7 +30,7 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.isMenuVisible = event.url !== '/menu-dificuldade' && event.url !== '/pokedex' && event.url !== '/batalha';
+        this.isMenuVisible = event.url !== '/menu-dificuldade' && event.url !== '/pokedex' && event.url !== '/batalha' && event.url !== '/ajuda';
       }
     });
   }

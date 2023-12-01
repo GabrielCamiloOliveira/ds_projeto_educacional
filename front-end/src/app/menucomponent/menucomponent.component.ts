@@ -32,7 +32,13 @@ export class MenucomponentComponent implements AfterViewInit {
       const route = '/pokedex';
       this.menuButtonClick.emit(route);
       this.router.navigate([route]);
+
+    } else if (imageLink.includes('ajuda')) {
+      const route = '/ajuda';
+      this.menuButtonClick.emit(route);
+      this.router.navigate([route]);
     }
+    
   }
 
   ngAfterViewInit(): void {
