@@ -38,6 +38,8 @@ export class BatalhaComponent implements OnInit, OnDestroy {
   enemyname!: string;
   startId!: number;
   endId!: number;
+  lifeEnemyWidth: number = 100; // Inicialmente, a barra de vida está cheia
+  lifeUserWidth: number = 100; // Inicialmente, a barra de vida está cheia
 
   username = "Usuário";
   userPokemon = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"

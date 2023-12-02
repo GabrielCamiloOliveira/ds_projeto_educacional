@@ -33,7 +33,7 @@ body, html {
     top: 5%;
     left: 5%;
     width: 25%;
-    height: 20%;
+    height: 21%;
     border: none;
     cursor: pointer;
   }
@@ -45,7 +45,7 @@ body, html {
     top: 28%;
     left: 5%;
     width: 25%;
-    height: 20%;
+    height: 21%;
     border: none;
     cursor: pointer;
   }
@@ -57,7 +57,7 @@ body, html {
     top: 51%;
     left: 5%;
     width: 25%;
-    height: 20%;
+    height: 21%;
     border: none;
     cursor: pointer;
   }
@@ -69,7 +69,7 @@ body, html {
     top: 74%;
     left: 5%;
     width: 25%;
-    height: 20%;
+    height: 21%;
     border: none;
     cursor: pointer;
   }
@@ -136,6 +136,9 @@ body, html {
     box-sizing: border-box;
     animation: blink 0.8s infinite alternate; /* Aplica a animação de piscar constantemente */
     transition: opacity 1s ease; /* Adiciona uma transição de opacidade */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 
 .descIniciante1 {

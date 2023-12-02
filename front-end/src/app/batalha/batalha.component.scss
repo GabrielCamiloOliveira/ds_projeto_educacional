@@ -67,6 +67,24 @@ body, html {
     left: 50%;
   }
 
+  .lifeBarEnemy {
+    background-color: green; /* Cor da barra de vida do inimigo */
+    position: absolute;
+    height: 2%;
+    width: 14.4%;
+    top: 19.8%;
+    left: 21.7%;
+  }
+
+  .lifeBarUser {
+    background-color: green; /* Cor da barra de vida do usuário */
+    position: absolute;
+    height: 1.48%;
+    width: 13.8%;
+    top: 61.25%;
+    left: 63.85%;
+  }
+
   .enunciado {
     font-family: 'Pokemon';
     font-size: 115%;
@@ -203,4 +221,3 @@ body, html {
     image-rendering: crisp-edges;               /* CSS4 Proposed */
     -ms-interpolation-mode: nearest-neighbor;   /* IE (fallback) */
   }
-
