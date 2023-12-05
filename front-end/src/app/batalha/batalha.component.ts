@@ -17,36 +17,36 @@ export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
 
   handleButtonClick(resposta: number): void {
     const respostaCorreta = this.verificarResposta(resposta);
+    const tolerance = 1e-10; // Defina uma tolerância adequada
 
     if (respostaCorreta) {
-      console.log('Resposta correta!');
+        console.log('Resposta correta!');
 
-      if (this.lifeEnemyWidth - 3.6 > 0){
-        this.lifeEnemyWidth = (this.lifeEnemyWidth - 3.6);
-        if (this.lifeEnemyWidth = 0) {
-          console.log("Usuário venceu!");
+        if (this.lifeEnemyWidth - 3.6 > 0) {
+            this.lifeEnemyWidth = (this.lifeEnemyWidth - 3.6);
+            if (this.lifeEnemyWidth <= tolerance) {
+                this.lifeEnemyWidth = 0;
+                console.log("Usuário venceu!");
+            }
+        } else {
+            this.lifeEnemyWidth = 0;
+            console.log("Usuário venceu!");
         }
-      }
-      else {
-        this.lifeEnemyWidth = 0;
-        console.log("Usuário venceu!");
-      }
-
     } else {
-      if (this.lifeUserWidth - 3.45 > 0){
-        this.lifeUserWidth = (this.lifeUserWidth - 3.45);
-        if (this.lifeUserWidth = 0) {
-          console.log("Usuário perdeu...");
+        if (this.lifeUserWidth - 3.45 > 0) {
+            this.lifeUserWidth = (this.lifeUserWidth - 3.45);
+            if (this.lifeUserWidth <= tolerance) {
+                this.lifeUserWidth = 0;
+                console.log("Usuário perdeu...");
+            }
+        } else {
+            this.lifeUserWidth = 0;
+            console.log("Usuário perdeu...");
         }
-      }
-      else {
-        this.lifeUserWidth = 0;
-        console.log("Usuário perdeu...");
-      }
-      console.log('Resposta incorreta. Gerando nova expressão...');
-      this.regenerarExpressao();
+        console.log('Resposta incorreta. Gerando nova expressão...');
+        this.regenerarExpressao();
     }
-  }
+}
 
   dificuldadeSelecionada!: string;
   dificuldadeSubscription: Subscription | undefined;
@@ -100,7 +100,6 @@ export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
       if (dificuldade == "Iniciante") {
         this.startId = 1;
         this.endId = 36;
-        //safe numbers = 3;
       }
       else if (dificuldade == "Moderado") {
         this.startId = 37;
@@ -200,7 +199,13 @@ export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
   
     for (let i = 0; i < numOperators; i++) {
       const operator = this.getRandomOperator(); // Gera um operador aleatório
-      const operand = this.getRandomInt(0, maxNumber); // Gera um número aleatório
+      let operand = this.getRandomInt(0, maxNumber); // Gera um número aleatório
+
+              // Se o operador escolhido for de divisão, garanta que o novo número não seja zero
+              if (operator === '/' && operand === 0) {
+                operand = this.getRandomInt(1, maxNumber);
+            }
+
       expression += ` ${operator} ${operand}`; // Insere um operador e um operando para cada iteração
     }
   
