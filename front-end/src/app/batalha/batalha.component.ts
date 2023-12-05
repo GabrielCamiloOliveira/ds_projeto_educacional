@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, SimpleChanges, OnChanges, Input } from '@angular/core';
 import { DificuldadeService } from '../services/dificuldade.service';
 import * as math from 'mathjs';
 import { Router } from '@angular/router';
@@ -8,16 +8,41 @@ import { PokeapiService } from '../services/pokeapi.service';
 @Component({
   selector: 'app-batalha',
   templateUrl: './batalha.component.html',
-  styleUrls: ['./batalha.component.scss']
+  styleUrls: ['./batalha.component.scss'],
 })
-export class BatalhaComponent implements OnInit, OnDestroy {
+export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
+
+  @Input() lifeEnemyWidth: number = 14.4; // Inicialmente, a barra de vida está cheia
+  @Input() lifeUserWidth: number = 13.8; // Inicialmente, a barra de vida está cheia
 
   handleButtonClick(resposta: number): void {
     const respostaCorreta = this.verificarResposta(resposta);
 
     if (respostaCorreta) {
       console.log('Resposta correta!');
+
+      if (this.lifeEnemyWidth - 3.6 > 0){
+        this.lifeEnemyWidth = (this.lifeEnemyWidth - 3.6);
+        if (this.lifeEnemyWidth = 0) {
+          console.log("Usuário venceu!");
+        }
+      }
+      else {
+        this.lifeEnemyWidth = 0;
+        console.log("Usuário venceu!");
+      }
+
     } else {
+      if (this.lifeUserWidth - 3.45 > 0){
+        this.lifeUserWidth = (this.lifeUserWidth - 3.45);
+        if (this.lifeUserWidth = 0) {
+          console.log("Usuário perdeu...");
+        }
+      }
+      else {
+        this.lifeUserWidth = 0;
+        console.log("Usuário perdeu...");
+      }
       console.log('Resposta incorreta. Gerando nova expressão...');
       this.regenerarExpressao();
     }
@@ -38,14 +63,27 @@ export class BatalhaComponent implements OnInit, OnDestroy {
   enemyname!: string;
   startId!: number;
   endId!: number;
-  lifeEnemyWidth: number = 100; // Inicialmente, a barra de vida está cheia
-  lifeUserWidth: number = 100; // Inicialmente, a barra de vida está cheia
 
   username = "Usuário";
   userPokemon = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"
   correctResult: number = 0;
 
   constructor(private router: Router, private dificuldadeService: DificuldadeService, private pokeapiService: PokeapiService) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    // Verifica se a largura da barra de vida do inimigo mudou
+    if (changes['lifeEnemyWidth']) {
+        this.addHitAnimation('enemyImg');
+        console.log("Vida do inimigo mudou!");
+    }
+
+    // Verifica se a largura da barra de vida do usuário mudou
+    if (changes['lifeUserWidth']) {
+        this.addHitAnimation('userImg');
+        console.log("Vida do usuário mudou!");
+    }
+}
+
 
   ngOnInit(): void {
 
@@ -62,6 +100,7 @@ export class BatalhaComponent implements OnInit, OnDestroy {
       if (dificuldade == "Iniciante") {
         this.startId = 1;
         this.endId = 36;
+        //safe numbers = 3;
       }
       else if (dificuldade == "Moderado") {
         this.startId = 37;
@@ -241,5 +280,21 @@ export class BatalhaComponent implements OnInit, OnDestroy {
   regenerarExpressao(): void {
     this.expressao = this.generateExpression(this.dificuldadeSelecionada).expression
   }
+
+  ////////////////////////////////////////////////////// ANIMAÇÃO DE HIT //////////////////////////////////////////////////////
+
+    // Método para adicionar a classe de animação
+    private addHitAnimation(elementId: string) {
+      const element = document.querySelector(`.${elementId}`);
+      // Adiciona a classe apenas se ela ainda não estiver presente
+      if (element && !element.classList.contains('hit-animation')) {
+          element.classList.add('hit-animation');
+          // Remove a classe após a animação terminar
+          setTimeout(() => {
+              element.classList.remove('hit-animation');
+          }, 1000); // Ajuste o tempo para coincidir com a duração da animação
+      }
+  }
 }
+
 
