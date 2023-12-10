@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, SimpleChanges, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, ChangeDetectorRef } from '@angular/core';
 import { DificuldadeService } from '../services/dificuldade.service';
 import * as math from 'mathjs';
 import { Router } from '@angular/router';
@@ -10,7 +10,12 @@ import { PokeapiService } from '../services/pokeapi.service';
   templateUrl: './batalha.component.html',
   styleUrls: ['./batalha.component.scss'],
 })
-export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
+export class BatalhaComponent implements OnInit, OnDestroy {
+  
+  constructor(private router: Router,
+    private dificuldadeService: DificuldadeService,
+    private pokeapiService: PokeapiService,
+    private cdr: ChangeDetectorRef) {}
 
   @Input() lifeEnemyWidth: number = 14.4; // Inicialmente, a barra de vida está cheia
   @Input() lifeUserWidth: number = 13.8; // Inicialmente, a barra de vida está cheia
@@ -21,9 +26,11 @@ export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
 
     if (respostaCorreta) {
         console.log('Resposta correta!');
-
+        this.ativarAnimacaoHit(1);
         if (this.lifeEnemyWidth - 3.6 > 0) {
             this.lifeEnemyWidth = (this.lifeEnemyWidth - 3.6);
+            this.cdr.detectChanges();
+
             if (this.lifeEnemyWidth <= tolerance) {
                 this.lifeEnemyWidth = 0;
                 console.log("Usuário venceu!");
@@ -33,6 +40,7 @@ export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
             console.log("Usuário venceu!");
         }
     } else {
+        this.ativarAnimacaoHit(2);  
         if (this.lifeUserWidth - 3.45 > 0) {
             this.lifeUserWidth = (this.lifeUserWidth - 3.45);
             if (this.lifeUserWidth <= tolerance) {
@@ -63,27 +71,11 @@ export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
   enemyname!: string;
   startId!: number;
   endId!: number;
+  pokemonList!: number[];
 
   username = "Usuário";
   userPokemon = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/25.png"
   correctResult: number = 0;
-
-  constructor(private router: Router, private dificuldadeService: DificuldadeService, private pokeapiService: PokeapiService) {}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    // Verifica se a largura da barra de vida do inimigo mudou
-    if (changes['lifeEnemyWidth']) {
-        this.addHitAnimation('enemyImg');
-        console.log("Vida do inimigo mudou!");
-    }
-
-    // Verifica se a largura da barra de vida do usuário mudou
-    if (changes['lifeUserWidth']) {
-        this.addHitAnimation('userImg');
-        console.log("Vida do usuário mudou!");
-    }
-}
-
 
   ngOnInit(): void {
 
@@ -98,27 +90,26 @@ export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
       console.log(this.expressao = this.generateExpression(dificuldade).expression);
       
       if (dificuldade == "Iniciante") {
-        this.startId = 1;
-        this.endId = 36;
+        this.pokemonList = [1,4,7,10,11,13,14,16,19,21,23,29,32,35,39,41,50,63,72,74,81,
+        90,92,100,102,109,114,116,118,129,138,140];
       }
       else if (dificuldade == "Moderado") {
-        this.startId = 37;
-        this.endId = 73;
+        this.pokemonList = [2,5,8,17,20,22,24,25,27,30,33,36,37,40,42,43,46,48,51,52,
+        54,56,58,60,64,66,69,75,77,79,83,84,86,88,113,120,127,133,137,139,147,104];
       }
       else if (dificuldade == "Experiente") {
-        this.startId = 74;
-        this.endId = 111;
+        this.pokemonList = [3,6,9,12,15,18,26,28,31,34,38,44,47,49,53,55,57,61,67,70,78,80,
+        82,85,87,89,91,93,96,98,101,106,110,111,117,119,121,132,134,141,135,136];
       }
       else {
-        this.startId = 115;
-        this.endId = 151;
+        this.pokemonList = [45,59,62,65,68,71,73,76,94,95,97,99,103,107,108,112,115,122,
+        123,124,125,126,128,130,131,142,143,144,145,146,148,149,150,151];
       }
       });
 
       // Obtém um Pokémon aleatório com base na dificuldade
-      this.pokeapiService.getPokemonRandomInRange(this.startId, this.endId).subscribe((pokemon: any) => {
+      this.pokeapiService.getPokemonRandomInList(this.pokemonList).subscribe((pokemon: any) => {
       const pokemonSprite = pokemon.sprites.versions['generation-v']['black-white'].animated.front_default;
-      console.log('Sprite do Pokémon:', pokemonSprite);
       this.enemyPokemon = pokemonSprite;
       this.enemyname = this.capitalizeFirstLetter(pokemon.name);
       // Agora você pode exibir o sprite na tela
@@ -169,7 +160,6 @@ export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
 
     try {
       correctResult = this.evaluateExpression(expression);
-  
       // Arredonda para 2 casas decimais se houver dízima periódica
       correctResult = Number(correctResult.toFixed(2));
     } catch (error) {
@@ -288,18 +278,37 @@ export class BatalhaComponent implements OnInit, OnDestroy, OnChanges {
 
   ////////////////////////////////////////////////////// ANIMAÇÃO DE HIT //////////////////////////////////////////////////////
 
-    // Método para adicionar a classe de animação
-    private addHitAnimation(elementId: string) {
-      const element = document.querySelector(`.${elementId}`);
-      // Adiciona a classe apenas se ela ainda não estiver presente
-      if (element && !element.classList.contains('hit-animation')) {
-          element.classList.add('hit-animation');
-          // Remove a classe após a animação terminar
-          setTimeout(() => {
-              element.classList.remove('hit-animation');
-          }, 1000); // Ajuste o tempo para coincidir com a duração da animação
+    // Método para ativar a animação no elemento com a classe enemyImg
+  private ativarAnimacaoHit(number: number): void {
+    // Substitua 'enemyImg' pelo nome da classe do elemento desejado
+    const element = document.querySelector('.enemyImg');
+
+    if (element) {
+      if(number == 1){
+        this.addHitAnimation('enemyImg');
       }
+      else {
+        this.addHitAnimation('userImg');
+      }
+    }
   }
+
+private addHitAnimation(elementId: string) {
+  const element = document.querySelector(`.${elementId}`);
+  if (element) {
+    // Adiciona a classe apenas se ela ainda não estiver presente
+    if (!element.classList.contains('hit-animation')) {
+      element.classList.add('hit-animation');
+      // Remove a classe após a animação terminar
+      setTimeout(() => {
+        element.classList.remove('hit-animation');
+      }, 1000); // Ajuste o tempo para coincidir com a duração da animação
+    }
+  } else {
+    console.error(`Elemento com classe ${elementId} não encontrado.`);
+  }
+}
+
 }
 
 

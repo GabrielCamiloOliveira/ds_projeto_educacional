@@ -13,7 +13,7 @@
     <span class="enunciado"> {{ enunciado }} </span>
     <span class="expressao"> {{ expressao }} </span>
 
-    <img src="{{ enemyPokemon }}" class="jumping-image image-pixel-art enemyImg">
+    <img src="{{ enemyPokemon }}" class="jumping-image image-pixel-art enemyImg" [ngClass]="'enemyImg-' + dificuldadeSelecionada">
     <img src="{{ userPokemon }}" class="jumping-image image-pixel-art userImg">
 
     <button class="resposta1" (click)="handleButtonClick(resposta1)">{{resposta1}}</button>

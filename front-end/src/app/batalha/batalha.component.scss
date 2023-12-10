@@ -102,14 +102,36 @@ body, html {
   }
 
   .enemyImg {
-    width: 15%;
-    height: 25%;
     position: absolute;
     top: 29%;
     left: 60%;
     z-index: -1;
     animation: jump 3s;
   }
+
+.enemyImg-Iniciante {
+  width: 11%;
+  height: 20%;
+  top: 33%;
+  position: absolute;
+}
+
+.enemyImg-Moderado {
+  width: 13.5%;
+  height: 22.5%;
+}
+
+.enemyImg-Experiente {
+  width: 16%;
+  height: 25%;
+}
+
+.enemyImg-Mestre {
+  width: 19%;
+  height: 33%;
+  top: 23%;
+  left: 55%;
+}
 
   .userImg {
     width: 25%;
@@ -225,13 +247,13 @@ body, html {
         transform: translateY(0);
     }
     40% {
-        transform: translateY(-20px);
+        transform: translateX(-30px);
     }
     60% {
-        transform: translateY(-10px);
+        transform: translateX(0px);
     }
 }
 
 .hit-animation {
-    animation: hitAnimation 1s ease; /* Ajuste a duração e a função de temporização conforme necessário */
+    animation: hitAnimation 0.5s ease; /* Ajuste a duração e a função de temporização conforme necessário */
 }
