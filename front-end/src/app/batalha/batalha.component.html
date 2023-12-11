@@ -2,7 +2,12 @@
 
     <img src='.\assets\images\battlebackground.png' alt="Background Image" class="background-image">
 
-    <img src='.\assets\images\battlebox.png' class="battlebox">
+    <img class ="jumping-image image-pixel-art winnerImg" src = {{winnerImgSrc}} *ngIf="isPokemonVisible">
+    <img class ="mark image-pixel-art checkmark" src = '.\assets\images\greencheck.png' *ngIf="acertouQuestao">
+    <img class ="mark image-pixel-art redmark" src = '.\assets\images\redmark.png' *ngIf="errouQuestao">
+
+    <button class="blueboxButton" (click)="handleBlueboxClick()"></button>
+    <img src='.\assets\images\battlebox.png' class="battlebox" [style.z-index]="indexBox">
     
     <img src='.\assets\images\lifebarEnemy.png' class="lifeEnemy">
     <div class="lifeBarEnemy"  [style.width.%]="lifeEnemyWidth"></div>
@@ -10,16 +15,31 @@
     <img src='.\assets\images\lifebarUser.png' class="lifeUser">
     <div class="lifeBarUser"  [style.width.%]="lifeUserWidth"></div>
 
-    <span class="enunciado"> {{ enunciado }} </span>
+    <span class="enunciado" [innerHTML]="enunciado"> = {{ enunciado }} </span>
     <span class="expressao"> {{ expressao }} </span>
 
     <img src="{{ enemyPokemon }}" class="jumping-image image-pixel-art enemyImg" [ngClass]="'enemyImg-' + dificuldadeSelecionada">
     <img src="{{ userPokemon }}" class="jumping-image image-pixel-art userImg">
 
-    <button class="resposta1" (click)="handleButtonClick(resposta1)">{{resposta1}}</button>
-    <button class="resposta2" (click)="handleButtonClick(resposta2)">{{resposta2}}</button>
-    <button class="resposta3" (click)="handleButtonClick(resposta3)">{{resposta3}}</button>
-    <button class="resposta4" (click)="handleButtonClick(resposta4)">{{resposta4}}</button>
+    <button class="resposta1" [style.z-index]="indexBox" (click)="handleButtonClick(resposta1)" (mouseenter)="mostrarSeletor($event, true)" (mouseleave)="mostrarSeletor($event, false)">
+        {{resposta1}}
+      </button>
+      <img *ngIf="mostrarSeletorImagem && botaoComMouseEmCima === 1" class="seletor-imagem seletor1" src="./assets/images/selector.png" alt="Seletor">
+
+      <button class="resposta2" [style.z-index]="indexBox" (click)="handleButtonClick(resposta2)" (mouseenter)="mostrarSeletor($event, true)" (mouseleave)="mostrarSeletor($event, false)">
+        {{resposta2}}
+      </button>
+      <img *ngIf="mostrarSeletorImagem && botaoComMouseEmCima === 2" class="seletor-imagem seletor2" src="./assets/images/selector.png" alt="Seletor">
+
+      <button class="resposta3" [style.z-index]="indexBox" (click)="handleButtonClick(resposta3)" (mouseenter)="mostrarSeletor($event, true)" (mouseleave)="mostrarSeletor($event, false)">
+        {{resposta3}}
+      </button>
+      <img *ngIf="mostrarSeletorImagem && botaoComMouseEmCima === 3" class="seletor-imagem seletor3" src="./assets/images/selector.png" alt="Seletor">
+
+      <button class="resposta4" [style.z-index]="indexBox" (click)="handleButtonClick(resposta4)" (mouseenter)="mostrarSeletor($event, true)" (mouseleave)="mostrarSeletor($event, false)">
+        {{resposta4}}
+      </button>
+      <img *ngIf="mostrarSeletorImagem && botaoComMouseEmCima === 4" class="seletor-imagem seletor4" src="./assets/images/selector.png" alt="Seletor">
         
     <span class="username"> {{ username }} </span>
     <span class="enemyname"> {{ enemyname }} </span>

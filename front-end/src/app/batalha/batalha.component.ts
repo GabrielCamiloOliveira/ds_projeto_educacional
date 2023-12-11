@@ -19,42 +19,123 @@ export class BatalhaComponent implements OnInit, OnDestroy {
 
   @Input() lifeEnemyWidth: number = 14.4; // Inicialmente, a barra de vida está cheia
   @Input() lifeUserWidth: number = 13.8; // Inicialmente, a barra de vida está cheia
+  lifeUserDamage!: number; //Dano sofrido ao errar
+  lifeEnemyDamage!: number; //Dano causado ao acertar
+
+  indexBox = 0;
+  numberOfClicks = 0;
+
+  resultado!: boolean;
+  winnerImgSrc!: string;
+  isPokemonVisible = false;
+  
+  acertouQuestao = false;
+  errouQuestao = false;
+
+  mostrarSeletorImagem: boolean = false;
+botaoComMouseEmCima: number | null = null;
+
+mostrarSeletor(event: MouseEvent, mostrar: boolean): void {
+  this.mostrarSeletorImagem = mostrar;
+
+  if (mostrar) {
+    // Obtém o número do botão do evento
+    const botao =
+    (event.target as HTMLElement).classList.contains('resposta1') ? 1 :
+    (event.target as HTMLElement).classList.contains('resposta2') ? 2 :
+    (event.target as HTMLElement).classList.contains('resposta3') ? 3 :
+    (event.target as HTMLElement).classList.contains('resposta4') ? 4 : null;
+
+    if (botao !== null) {
+      this.botaoComMouseEmCima = botao;
+    }
+  } else {
+    this.botaoComMouseEmCima = null;
+  }
+}
 
   handleButtonClick(resposta: number): void {
     const respostaCorreta = this.verificarResposta(resposta);
-    const tolerance = 1e-10; // Defina uma tolerância adequada
+    const tolerance = 1e-10; // Defina uma tolerância adequada para não causar bugs ao calcular a % de vida
 
     if (respostaCorreta) {
+        this.acertouQuestao = true;
         console.log('Resposta correta!');
         this.ativarAnimacaoHit(1);
-        if (this.lifeEnemyWidth - 3.6 > 0) {
-            this.lifeEnemyWidth = (this.lifeEnemyWidth - 3.6);
+        if (this.lifeEnemyWidth - this.lifeEnemyDamage > 0) {
+            this.lifeEnemyWidth = (this.lifeEnemyWidth - this.lifeEnemyDamage);
             this.cdr.detectChanges();
-
+            this.regenerarExpressao();
+          
             if (this.lifeEnemyWidth <= tolerance) {
                 this.lifeEnemyWidth = 0;
-                console.log("Usuário venceu!");
+                this.indexBox = -1;
+                this.enunciado = "Você venceu! <br> Clique para continuar...";
+                this.expressao = "";
+                this.resultado = true;
             }
         } else {
             this.lifeEnemyWidth = 0;
-            console.log("Usuário venceu!");
+            this.indexBox = -1;
+            this.enunciado = "Você venceu! <br> Clique para continuar...";
+            this.expressao = "";
+            this.resultado = true;
         }
+
+        setTimeout(() => {
+          this.acertouQuestao = false;
+        }, 2000);
+
     } else {
-        this.ativarAnimacaoHit(2);  
-        if (this.lifeUserWidth - 3.45 > 0) {
-            this.lifeUserWidth = (this.lifeUserWidth - 3.45);
+        this.errouQuestao = true;
+        this.ativarAnimacaoHit(2);
+        if (this.lifeUserWidth - this.lifeUserDamage > 0) {
+            this.lifeUserWidth = (this.lifeUserWidth - this.lifeUserDamage);
+            this.regenerarExpressao();
+
             if (this.lifeUserWidth <= tolerance) {
                 this.lifeUserWidth = 0;
-                console.log("Usuário perdeu...");
+                this.indexBox = -1;
+                this.expressao = "";
+                this.enunciado = "Você perdeu... <br> Clique para continuar...";
+                this.resultado = false;
             }
         } else {
             this.lifeUserWidth = 0;
-            console.log("Usuário perdeu...");
+            this.indexBox = -1;
+            this.expressao = "";
+            this.enunciado = "Você perdeu... <br> Clique para continuar...";
+            this.resultado = false;
         }
-        console.log('Resposta incorreta. Gerando nova expressão...');
-        this.regenerarExpressao();
+        setTimeout(() => {
+          this.errouQuestao = false;
+        }, 2000);
     }
 }
+
+handleBlueboxClick() {
+
+    if(this.numberOfClicks == 0){
+      if(this.resultado == true){
+        this.isPokemonVisible = true;
+        this.enunciado = this.enemyname + " foi adicionado à sua coleção! <br> Clique para continuar...";
+        this.numberOfClicks++;
+      }
+      else {
+        this.enunciado = "Clique novamente para voltar ao menu.";
+        this.numberOfClicks++;
+      }
+    }
+
+    else if(this.numberOfClicks == 1){
+      if(this.resultado == true){
+        this.router.navigate(['/menu-dificuldade']);;
+      }
+      else {
+        this.router.navigate(['/menu-dificuldade']);
+      }
+    }
+  }
 
   dificuldadeSelecionada!: string;
   dificuldadeSubscription: Subscription | undefined;
@@ -110,10 +191,34 @@ export class BatalhaComponent implements OnInit, OnDestroy {
       // Obtém um Pokémon aleatório com base na dificuldade
       this.pokeapiService.getPokemonRandomInList(this.pokemonList).subscribe((pokemon: any) => {
       const pokemonSprite = pokemon.sprites.versions['generation-v']['black-white'].animated.front_default;
+      this.winnerImgSrc = pokemon.sprites.other['official-artwork'].front_default;
+      console.log(this.winnerImgSrc);
       this.enemyPokemon = pokemonSprite;
       this.enemyname = this.capitalizeFirstLetter(pokemon.name);
       // Agora você pode exibir o sprite na tela
     });
+
+    switch (this.dificuldadeSelecionada) {
+      case 'Iniciante':
+        this.lifeUserDamage = 3.45;
+        this.lifeEnemyDamage = 14.4;
+        break;
+      case 'Moderado':
+        this.lifeUserDamage = 6.21;
+        this.lifeEnemyDamage = 10.8;
+        break;
+      case 'Experiente':
+        this.lifeUserDamage = 10.35;
+        this.lifeEnemyDamage = 6.48;
+        break;
+      case 'Mestre':
+        this.lifeUserDamage = 13.8;
+        this.lifeEnemyDamage = 3.6;
+        break;
+  
+        throw new Error('Erro ao determinar os valores de dano.');
+    }
+  
   }
 
   ngOnDestroy(): void {
@@ -225,7 +330,6 @@ export class BatalhaComponent implements OnInit, OnDestroy {
     }
   }
 
-
   private generateFakeResults(correctResult: number): number[] {
     const fakeResults = [correctResult];
 
@@ -266,7 +370,6 @@ export class BatalhaComponent implements OnInit, OnDestroy {
   capitalizeFirstLetter(str: string): string {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
-  
 
   verificarResposta(respostaSelecionada: number): boolean {
     return respostaSelecionada === this.correctResult;

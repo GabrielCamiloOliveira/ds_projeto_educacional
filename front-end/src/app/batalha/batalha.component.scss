@@ -51,6 +51,18 @@ body, html {
     left: 4.5%;
   }
 
+  .blueboxButton {
+    background: url('/assets/images/bluebox.png') no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    width: 90%;
+    height: 26.7%;
+    top: 73%;
+    left: 4.5%;
+  }
+
   .lifeEnemy {
     width: 30%;
     height: 20%;
@@ -110,7 +122,7 @@ body, html {
   }
 
 .enemyImg-Iniciante {
-  width: 11%;
+  width: 12.5%;
   height: 20%;
   top: 33%;
   position: absolute;
@@ -141,6 +153,22 @@ body, html {
     left: 14%;
     z-index: -1;
     animation: slide-in 3s;
+  }
+
+  @keyframes blinkAnimation {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .winnerImg {
+    position: absolute;
+    top: 78%;
+    left: 72%;
+    height: 18%;
+    width: 10%;
+    z-index: 2;
+    animation: blinkAnimation 1s infinite; /* Ajuste a duração conforme necessário */
   }
 
   .resposta1 {
@@ -256,4 +284,70 @@ body, html {
 
 .hit-animation {
     animation: hitAnimation 0.5s ease; /* Ajuste a duração e a função de temporização conforme necessário */
+}
+
+.mark {
+  position: absolute;
+  width: 11%;
+  height: 20%;
+  top: 70%;
+  left: 80%;
+  animation: jumpCheckMarks 2.5s ease-in-out, fadeOutAnimation 2.5s;
+  z-index: 2;
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes jumpCheckMarks {
+  0% {
+    transform: translateY(0);
+  }
+  50%, 100% {
+    transform: translateY(-120px);
+  }
+}
+
+.seletor-imagem {
+  width: 40px; /* Ajuste conforme necessário */
+  height: 40px; /* Ajuste conforme necessário */
+  animation: moverSeletor 1s linear infinite; /* Adiciona a animação de movimento */
+  position:absolute;
+}
+
+.seletor1{
+  left:48.5%;
+  top:79.8%;
+}
+
+.seletor2{
+  left:65.5%;
+  top:79.8%;
+}
+
+.seletor3{
+  left:48.5%;
+  top:89.8%;
+}
+
+.seletor4{
+  left:65.5%;
+  top:89.8%;
+}
+
+@keyframes moverSeletor {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px); /* Ajuste conforme necessário */
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
