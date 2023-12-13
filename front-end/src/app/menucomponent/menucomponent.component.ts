@@ -47,4 +47,8 @@ export class MenucomponentComponent implements AfterViewInit {
       audioElement.volume = 0.01;
     }
   }
+
+  retornarHome(): void {
+    this.router.navigate(['/']); //
+  }
 }

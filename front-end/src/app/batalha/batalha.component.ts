@@ -97,14 +97,14 @@ mostrarSeletor(event: MouseEvent, mostrar: boolean): void {
                 this.lifeUserWidth = 0;
                 this.indexBox = -1;
                 this.expressao = "";
-                this.enunciado = "Você perdeu... <br> Clique para continuar...";
+                this.enunciado = "Você perdeu... <br> Clique para voltar ao menu...";
                 this.resultado = false;
             }
         } else {
             this.lifeUserWidth = 0;
             this.indexBox = -1;
             this.expressao = "";
-            this.enunciado = "Você perdeu... <br> Clique para continuar...";
+            this.enunciado = "Você perdeu... <br> Clique para voltar ao menu...";
             this.resultado = false;
         }
         setTimeout(() => {
@@ -122,7 +122,7 @@ handleBlueboxClick() {
         this.numberOfClicks++;
       }
       else {
-        this.enunciado = "Clique novamente para voltar ao menu.";
+        this.router.navigate(['/menu-dificuldade']);;
         this.numberOfClicks++;
       }
     }
