@@ -1,5 +1,9 @@
 <div class="background-container">
 
+  <!-- Imagem e texto para animação -->
+  <img src="assets/images/exercicioPreview.png" alt="Exercise Image" class="exercise-image" *ngIf="showExerciseInfo">
+  <div class="typed-out exercise-text" id="exerciseText"  [innerHTML]="ExercicioTexto" *ngIf="showExerciseInfo"> {{ExercicioTexto}} </div>
+
   <!-- Posicionamento absoluto dos botões -->
   <button class="buttonAjuda grupo-botoes" (click)="handleButtonClick('assets/images/ajuda.png')"></button>
   <button class="buttonColecao grupo-botoes" (click)="handleButtonClick('assets/images/colecao.png')"></button>

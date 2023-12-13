@@ -206,3 +206,45 @@ body, html {
 .return-button:hover {
   background-color: #B22222; /* Cor mais clara ao passar o mouse */
 }
+
+.exercise-image {
+  width: 30%; /* ajuste o tamanho conforme necessário */
+  height: auto;
+  animation: slideInLeft 0.5s ease;
+  z-index: 2;
+  position: absolute;
+  top: 37%;
+  left: 5%;
+}
+
+.exercise-text {
+  display: inline-block;
+  margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 1s steps(40) forwards;
+  z-index: 2;
+  position: absolute;
+  top: 72%;
+  left: 3.5%;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}

@@ -56,7 +56,7 @@ mostrarSeletor(event: MouseEvent, mostrar: boolean): void {
 
   handleButtonClick(resposta: number): void {
     const respostaCorreta = this.verificarResposta(resposta);
-    const tolerance = 1e-10; // Defina uma tolerância adequada para não causar bugs ao calcular a % de vida
+    const tolerance = 1e-10; // Definindo uma tolerância adequada para não causar bugs ao calcular a % de vida
 
     if (respostaCorreta) {
         this.acertouQuestao = true;
@@ -176,14 +176,14 @@ handleBlueboxClick() {
       }
       else if (dificuldade == "Moderado") {
         this.pokemonList = [2,5,8,17,20,22,24,25,27,30,33,36,37,40,42,43,46,48,51,52,
-        54,56,58,60,64,66,69,75,77,79,83,84,86,88,113,120,127,133,137,139,147,104];
+        54,56,58,60,64,66,69,75,77,79,83,84,86,88,113,120,127,133,137,139,147,104,106];
       }
       else if (dificuldade == "Experiente") {
         this.pokemonList = [3,6,9,12,15,18,26,28,31,34,38,44,47,49,53,55,57,61,67,70,78,80,
-        82,85,87,89,91,93,96,98,101,106,110,111,117,119,121,132,134,141,135,136];
+        82,85,87,89,91,93,96,98,101,107,110,111,117,119,121,132,134,141,135,136];
       }
       else {
-        this.pokemonList = [45,59,62,65,68,71,73,76,94,95,97,99,103,107,108,112,115,122,
+        this.pokemonList = [45,59,62,65,68,71,73,76,94,95,97,99,103,108,112,115,122,
         123,124,125,126,128,130,131,142,143,144,145,146,148,149,150,151];
       }
       });
