@@ -11,21 +11,9 @@ import { SharedExpressionService } from '../services/shared-expression.service';
 export class MenuDificuldadeComponent {
 
   textoIniciante = 'Iniciante';
-  descIniciante1 = '+'
-  descIniciante2 = '-'
-  descIniciante3 = 'x'
-
   textoModerado = 'Moderado';
-  descModerado1 = '()'
-  descModerado2 = '÷'
-
   textoExperiente = 'Experiente';
-  descExperiente1 = '[]'
-  descExperiente2 = 'x²'
-
   textoMestre = 'Mestre';
-  descMestre1 = '{}'
-  descMestre2 = '√'
 
   progressoIniciante = '40';
   progressoModerado = '20';
@@ -35,7 +23,7 @@ export class MenuDificuldadeComponent {
   constructor(private router: Router, private dificuldadeService: DificuldadeService) {}
   
   retornarHome(): void {
-    this.router.navigate(['/']); //
+    this.router.navigate(['/home']); //
   }
 
   handleButtonClick(dificuldade: string) {

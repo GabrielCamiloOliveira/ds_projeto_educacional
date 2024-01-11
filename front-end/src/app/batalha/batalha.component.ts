@@ -4,6 +4,8 @@ import * as math from 'mathjs';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { PokeapiService } from '../services/pokeapi.service';
+import { AuthService } from '../services/auth.service';
+import { Usuario } from '../interfaces/usuario';
 
 @Component({
   selector: 'app-batalha',
@@ -15,7 +17,8 @@ export class BatalhaComponent implements OnInit, OnDestroy {
   constructor(private router: Router,
     private dificuldadeService: DificuldadeService,
     private pokeapiService: PokeapiService,
-    private cdr: ChangeDetectorRef) {}
+    private cdr: ChangeDetectorRef,
+    private authService: AuthService) {}
 
   @Input() lifeEnemyWidth: number = 14.4; // Inicialmente, a barra de vida está cheia
   @Input() lifeUserWidth: number = 13.8; // Inicialmente, a barra de vida está cheia
@@ -33,7 +36,7 @@ export class BatalhaComponent implements OnInit, OnDestroy {
   errouQuestao = false;
 
   mostrarSeletorImagem: boolean = false;
-botaoComMouseEmCima: number | null = null;
+  botaoComMouseEmCima: number | null = null;
 
 mostrarSeletor(event: MouseEvent, mostrar: boolean): void {
   this.mostrarSeletorImagem = mostrar;
@@ -118,6 +121,13 @@ handleBlueboxClick() {
     if(this.numberOfClicks == 0){
       if(this.resultado == true){
         this.isPokemonVisible = true;
+
+        //fazer um if desse para cada dificuldade (verifica a dificuldade atual)
+        const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: 3, pokemons: [this.enemyPokemonNumber]};
+        this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
+        // Lógica para lidar com a resposta (se necessário)
+        });
+
         this.enunciado = this.enemyname + " foi adicionado à sua coleção! <br> Clique para continuar...";
         this.numberOfClicks++;
       }
@@ -143,6 +153,7 @@ handleBlueboxClick() {
   enunciado = "Assinale o resultado da expressao:";
   expressao!: String;
   enemyPokemon!: String;
+  enemyPokemonNumber!: number;
 
   resposta1!: number;
   resposta2!: number;
@@ -195,6 +206,7 @@ handleBlueboxClick() {
       console.log(this.winnerImgSrc);
       this.enemyPokemon = pokemonSprite;
       this.enemyname = this.capitalizeFirstLetter(pokemon.name);
+      this.enemyPokemonNumber = pokemon.id; //atribui o id do pokémon atual para a variável
       // Agora você pode exibir o sprite na tela
     });
 

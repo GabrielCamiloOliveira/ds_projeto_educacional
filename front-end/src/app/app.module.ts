@@ -11,6 +11,11 @@ import { MenuDificuldadeComponent } from './menu-dificuldade/menu-dificuldade.co
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AjudaComponent } from './ajuda/ajuda.component';
 import { BatalhaComponent } from './batalha/batalha.component';
+import { LoginComponent } from './auth/login/login.component';
+import { LoginFormComponent } from './auth/login-form/login-form.component';
+import { CadastroFormComponent } from './auth/cadastro-form/cadastro-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NewUsuarioComponent } from './singular-components/new-usuario/new-usuario.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +26,17 @@ import { BatalhaComponent } from './batalha/batalha.component';
     MenuDificuldadeComponent,
     AjudaComponent,
     BatalhaComponent,
+    LoginComponent,
+    LoginFormComponent,
+    CadastroFormComponent,
+    NewUsuarioComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

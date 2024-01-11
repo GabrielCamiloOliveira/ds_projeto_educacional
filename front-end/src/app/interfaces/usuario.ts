@@ -2,10 +2,14 @@ export interface Usuario {
     
     id: number;
     email: string;
-    nome: string;
+    username: string;
     senha: string;
     nivel: number;
     hp: number;
     pokemons: number[];
-    pokemonAtual : string;
+    pokemonAtual : number;
+    pIniciante: number;
+    pModerado: number;
+    pExperiente: number;
+    pMestre: number;
 }
