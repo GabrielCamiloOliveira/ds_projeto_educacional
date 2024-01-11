@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DificuldadeService } from '../services/dificuldade.service';
+import { SharedExpressionService } from '../services/shared-expression.service';
 
 @Component({
   selector: 'app-menu-dificuldade',
@@ -30,14 +32,19 @@ export class MenuDificuldadeComponent {
   progressoExperiente = '60';
   progressoMestre = '100';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private dificuldadeService: DificuldadeService) {}
   
   retornarHome(): void {
     this.router.navigate(['/']); //
   }
 
-  handleButtonClick(arg0: string) {
-    throw new Error('Method not implemented.');
+  handleButtonClick(dificuldade: string) {
+    // Define a dificuldade no serviço
+    console.log(dificuldade);
+    this.dificuldadeService.setDificuldade(dificuldade);
+
+    // Router para a tela de batalha
+    this.router.navigate(['/batalha']);
   }
 
 }

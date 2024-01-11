@@ -22,6 +22,7 @@ body, html {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    filter: brightness(25%);
   }
 
   .buttonIniciante {
@@ -31,7 +32,7 @@ body, html {
     top: 5%;
     left: 5%;
     width: 25%;
-    height: 20%;
+    height: 21%;
     border: none;
     cursor: pointer;
   }
@@ -43,7 +44,7 @@ body, html {
     top: 28%;
     left: 5%;
     width: 25%;
-    height: 20%;
+    height: 21%;
     border: none;
     cursor: pointer;
   }
@@ -55,7 +56,7 @@ body, html {
     top: 51%;
     left: 5%;
     width: 25%;
-    height: 20%;
+    height: 21%;
     border: none;
     cursor: pointer;
   }
@@ -67,7 +68,7 @@ body, html {
     top: 74%;
     left: 5%;
     width: 25%;
-    height: 20%;
+    height: 21%;
     border: none;
     cursor: pointer;
   }
@@ -76,16 +77,16 @@ body, html {
     font-weight: bold;
     font-family: 'Pokemon';
     position: absolute;
-    top: 10%;
-    left: 10%;
-    font-size: 150%;
+    top: 35%;
+    left: 8%;
+    font-size: 170%;
   }
 
   .bulbassaurimg {
     top: 24%;
     position: absolute;
     left: 65%;
-    height: 60%;
+    height: 70%;
     display: block;
   }
 
@@ -93,21 +94,21 @@ body, html {
     top: 5%;
     position: absolute;
     left: 60%;
-    height: 90%;
+    height: 100%;
   }
 
   .gengarimg {
-    top: 10%;
+    top: -2%;
     position: absolute;
-    left: 62%;
-    height: 90%;
+    left: 58%;
+    height: 120%;
   }
 
   .moltresimg {
-    top: 5%;
+    top: -7%;
     position: absolute;
-    left: 64%;
-    height: 90%;
+    left: 52%;
+    height: 120%;
   }
 
   @keyframes blink {
@@ -134,6 +135,9 @@ body, html {
     box-sizing: border-box;
     animation: blink 0.8s infinite alternate; /* Aplica a animação de piscar constantemente */
     transition: opacity 1s ease; /* Adiciona uma transição de opacidade */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 
 .descIniciante1 {
@@ -206,7 +210,6 @@ body, html {
   top: 42%;
 }
 
-/* No seu arquivo de estilo SCSS */
 .return-button {
   font-family: 'Pokemon';
   font-size: 60%;
@@ -233,8 +236,8 @@ body, html {
   grid-template-columns: repeat(3, 2vw) repeat(10, 2.5vw 1.5vw) repeat(2, 2vw);
   grid-template-rows: repeat(6, 1.5vw); /* Adjust row size as needed */
   position: absolute;
-  top: 7%;
-  left: 40%;
+  top: 14%;
+  left: 55%;
   transform: scale(0.7);
 }
 
@@ -245,8 +248,8 @@ body, html {
   grid-template-columns: repeat(3, 2vw) repeat(10, 2.5vw 1.5vw) repeat(2, 2vw);
   grid-template-rows: repeat(6, 1.5vw); /* Adjust row size as needed */
   position: absolute;
-  top: 30%;
-  left: 40%;
+  top: 37%;
+  left: 55%;
   transform: scale(0.7);
 }
 
@@ -257,8 +260,8 @@ body, html {
   grid-template-columns: repeat(3, 2vw) repeat(10, 2.5vw 1.5vw) repeat(2, 2vw);
   grid-template-rows: repeat(6, 1.5vw); /* Adjust row size as needed */
   position: absolute;
-  top: 54%;
-  left: 40%;
+  top: 60%;
+  left: 55%;
   transform: scale(0.7);
 }
 
@@ -269,168 +272,45 @@ body, html {
   grid-template-columns: repeat(3, 2vw) repeat(10, 2.5vw 1.5vw) repeat(2, 2vw);
   grid-template-rows: repeat(6, 1.5vw); /* Adjust row size as needed */
   position: absolute;
-  top: 76%;
-  left: 40%;
+  top: 83%;
+  left: 55%;
   transform: scale(0.7);
-}
-
-.block-border {
-  background-color: rgb(50,50,50);
-}
-
-.block-meter {
-  background-color: rgb(77, 2, 252);
-}
-
-.block-border:nth-of-type(1) {
-  grid-row: 1;
-  grid-column: 3/-3;
-}
-
-.block-border:nth-of-type(2) {
-  grid-row: -2;
-  grid-column: 3/-3;
-}
-
-.block-border:nth-of-type(3) {
-  grid-row: 3/5;
-  grid-column: 1;
-}
-
-.block-border:nth-of-type(4) {
-  grid-row: 3/5;
-  grid-column: -2;
-}
-
-.block-border:nth-of-type(5) {
-  grid-row: 2;
-  grid-column: 2;
-}
-
-.block-border:nth-of-type(6) {
-  grid-row: 2;
-  grid-column: -3;
-}
-
-.block-border:nth-of-type(7) {
-  grid-row: 5;
-  grid-column: 2;
-}
-
-.block-border:nth-of-type(8) {
-  grid-row: 5;
-  grid-column: -3;
-}
-
-.block-meter:nth-of-type(9) {
-  grid-row: 3/5;
-  grid-column: 4;
-}
-
-.block-meter:nth-of-type(10) {
-  grid-row: 3/5;
-  grid-column: 6;
-}
-
-.block-meter:nth-of-type(11) {
-  grid-row: 3/5;
-  grid-column: 8;
-}
-
-.block-meter:nth-of-type(12) {
-  grid-row: 3/5;
-  grid-column: 10;
-}
-
-.block-meter:nth-of-type(13) {
-  grid-row: 3/5;
-  grid-column: 12;
-  opacity: 0;
-  animation: blinky1 2s linear forwards;
-}
-
-.block-meter:nth-of-type(14) {
-  grid-row: 3/5;
-  grid-column: 14;
-  opacity: 0;
-  animation: blinky1 2s 4s linear forwards;
-}
-
-.block-meter:nth-of-type(15) {
-  grid-row: 3/5;
-  grid-column: 16;
-  opacity: 0;
-  animation: blinky1 2s 8s linear forwards;
-}
-
-.block-meter:nth-of-type(16) {
-  grid-row: 3/5;
-  grid-column: 18;
-  opacity: 0;
-  animation: blinky2 3s 14s linear infinite;
-}
-
-@keyframes blinky1 {
-  99% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-@keyframes blinky2 {
-  49% {opacity: 0;}
-  50% {opacity: 1;}
-  90% {opacity: 1;}
 }
 
 .progressoIniciante {
   font-weight: bold; /* Peso da fonte */
   position: absolute;
-  top: 2%;
-  left: 51%;
+  top: 7%;
+  left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5); //deslocamento vertical, horizontal e desfoque da sombra
 }
 
 .progressoModerado {
   font-weight: bold;
   position: absolute;
-  top: 25%;
-  left: 51%;
+  top: 30%;
+  left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 .progressoExperiente {
   font-weight: bold;
   position: absolute;
-  top: 48%;
-  left: 51%;
+  top: 53%;
+  left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 .progressoMestre {
   font-weight: bold;
   position: absolute;
-  top: 71%;
-  left: 51%;
+  top: 76%;
+  left: 46.5%;
   color: rgb(255, 255, 255);
-  text-shadow:
-  -1px -1px 0 #000, /* Sombra superior esquerda */
-  1px -1px 0 #000,  /* Sombra superior direita */
-  -1px 1px 0 #000,  /* Sombra inferior esquerda */
-  1px 1px 0 #000;   /* Sombra inferior direita */
+  text-shadow: 5px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
 @keyframes jump {
@@ -445,16 +325,89 @@ body, html {
   }
 }
 
-
 .jumping-image {
   transition: transform 0.5s ease; /* Adiciona uma transição suave para a animação */
   backface-visibility: hidden; /* Corrige o problema de embaçamento */
 }
-
 
 .buttonIniciante:hover .jumping-image,
 .buttonModerado:hover .jumping-image,
 .buttonExperiente:hover .jumping-image,
 .buttonMestre:hover .jumping-image {
   animation: jump 1s; /* Aplica a animação de pulo quando o botão é hover */
+}
+
+#center {
+  width: 600px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -300px;
+  margin-top: -50px;
+  background: rgb(54, 54, 54);
+ border: 2px solid rgb(0, 0, 0);
+ border-radius: 5px;
+ box-shadow: 0px 0px 10px 5px rgba(255,255,255,0.2);
+}
+
+#main {
+  width: 200px;
+  height: 40px;
+  background: #92C81A;
+  float: left;
+  animation: stretch 5s infinite linear;
+}
+
+.row {
+  height: 10px;
+  width: 400px;
+  float: left;
+  display: inherit;
+  animation: squeeze 5s infinite linear;
+}
+
+.sq {
+  height: 10px;
+  width: 10px;
+  float: left;
+}
+
+#sq-2 { background: #4A672F;}
+#sq-3 { background: #1D2019;}
+#sq-6 { background: #2C341C;}
+#sq-1, #sq-5, #sq-9 {
+  background: #74B215;
+}
+#sq-4, #sq-8, #sq-12 {
+  background: #7BC415;
+}
+
+#sq-7, #sq-10, #sq-11 {
+  background: #92C81A;
+}
+
+@keyframes stretch {
+	0% {width: 200px;}
+  25% {width: 280px;}
+  50% {width: 360px;}
+  75% {width: 240px;}
+	100% {width: 200px;}
+}
+@keyframes squeeze {
+	0% {width: 400px;}
+  25% {width: 320px;}
+  50% {width: 140px;}
+  75% {width: 360px;}
+	100% {width: 400px;}
+}
+
+.image-pixel-art {
+  image-rendering: optimizeSpeed;             /* IE */
+  image-rendering: -moz-crisp-edges;          /* Firefox */
+  image-rendering: -o-crisp-edges;            /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (Chrome) */
+  image-rendering: optimize-contrast;         /* CSS3 Proposed */
+  image-rendering: crisp-edges;               /* CSS4 Proposed */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE (fallback) */
 }
