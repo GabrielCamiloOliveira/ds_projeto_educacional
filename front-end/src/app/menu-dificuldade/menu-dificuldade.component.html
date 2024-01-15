@@ -1,0 +1,135 @@
+<div class="background-container">
+    <img src='.\assets\images\urban.png' alt="Background Image" class="background-image">
+    
+    <button class="buttonIniciante" (click)="handleButtonClick('Iniciante')">
+      <img class ="jumping-image image-pixel-art bulbassaurimg" src="assets/images/bulbasaur.png">
+      <span class="button-text">{{ textoIniciante }}</span>
+    </button>
+
+    <span class="progressoIniciante"> Progresso = {{ progressoIniciante}}% Completo</span>
+    <div class="loader-bar-iniciante">
+      <div id="center">
+        <div id="main"></div>
+        <div class="row" id="r-one">
+          <span class="sq" id="sq-1"></span>
+          <span class="sq" id="sq-2"></span>
+          <span class="sq" id="sq-3"></span>
+        </div>
+        <div class="row" id="r-two">
+          <span class="sq" id="sq-4"></span>
+          <span class="sq" id="sq-5"></span>
+          <span class="sq" id="sq-6"></span>
+        </div>
+        <div class="row" id="r-three">
+          <span class="sq" id="sq-7"></span>
+          <span class="sq" id="sq-8"></span>
+          <span class="sq" id="sq-9"></span>
+        </div>
+        <div class="row" id="r-four">
+          <span class="sq" id="sq-10"></span>
+          <span class="sq" id="sq-11"></span>
+          <span class="sq" id="sq-12"></span>
+        </div>
+      </div>
+    </div>
+
+    <button class="buttonModerado" (click)="handleButtonClick('Moderado')">
+      <img class ="jumping-image image-pixel-art ninetailsimg" src="assets/images/ninetails.png">
+      <span class="button-text">{{ textoModerado }}</span>
+    </button>
+
+    <span class="progressoModerado"> Progresso = {{ progressoModerado }}% Completo</span>
+    <div class="loader-bar-moderado">
+      <div id="center">
+        <div id="main"></div>
+        <div class="row" id="r-one">
+          <span class="sq" id="sq-1"></span>
+          <span class="sq" id="sq-2"></span>
+          <span class="sq" id="sq-3"></span>
+        </div>
+        <div class="row" id="r-two">
+          <span class="sq" id="sq-4"></span>
+          <span class="sq" id="sq-5"></span>
+          <span class="sq" id="sq-6"></span>
+        </div>
+        <div class="row" id="r-three">
+          <span class="sq" id="sq-7"></span>
+          <span class="sq" id="sq-8"></span>
+          <span class="sq" id="sq-9"></span>
+        </div>
+        <div class="row" id="r-four">
+          <span class="sq" id="sq-10"></span>
+          <span class="sq" id="sq-11"></span>
+          <span class="sq" id="sq-12"></span>
+        </div>
+      </div>
+    </div>
+
+    <button class="buttonExperiente" (click)="handleButtonClick('Experiente')">
+      <img class ="jumping-image image-pixel-art gengarimg" src="assets/images/gengar.png">
+      <span class="button-text">{{ textoExperiente }}</span>
+    </button>
+
+    <span class="progressoExperiente"> Progresso = {{ progressoExperiente }}% Completo</span>
+    <div class="loader-bar-experiente">
+      <div id="center">
+        <div id="main"></div>
+        <div class="row" id="r-one">
+          <span class="sq" id="sq-1"></span>
+          <span class="sq" id="sq-2"></span>
+          <span class="sq" id="sq-3"></span>
+        </div>
+        <div class="row" id="r-two">
+          <span class="sq" id="sq-4"></span>
+          <span class="sq" id="sq-5"></span>
+          <span class="sq" id="sq-6"></span>
+        </div>
+        <div class="row" id="r-three">
+          <span class="sq" id="sq-7"></span>
+          <span class="sq" id="sq-8"></span>
+          <span class="sq" id="sq-9"></span>
+        </div>
+        <div class="row" id="r-four">
+          <span class="sq" id="sq-10"></span>
+          <span class="sq" id="sq-11"></span>
+          <span class="sq" id="sq-12"></span>
+        </div>
+      </div>
+    </div>
+
+    <button class="buttonMestre" (click)="handleButtonClick('Mestre')">
+      <img class ="jumping-image image-pixel-art moltresimg" src="assets/images/moltres.png">
+      <span class="button-text">{{ textoMestre }}</span>
+    </button>
+
+    <span class="progressoMestre"> Progresso = {{ progressoMestre }}% Completo</span>
+    <div class="loader-bar-mestre">
+      <div id="center">
+        <div id="main"></div>
+        <div class="row" id="r-one">
+          <span class="sq" id="sq-1"></span>
+          <span class="sq" id="sq-2"></span>
+          <span class="sq" id="sq-3"></span>
+        </div>
+        <div class="row" id="r-two">
+          <span class="sq" id="sq-4"></span>
+          <span class="sq" id="sq-5"></span>
+          <span class="sq" id="sq-6"></span>
+        </div>
+        <div class="row" id="r-three">
+          <span class="sq" id="sq-7"></span>
+          <span class="sq" id="sq-8"></span>
+          <span class="sq" id="sq-9"></span>
+        </div>
+        <div class="row" id="r-four">
+          <span class="sq" id="sq-10"></span>
+          <span class="sq" id="sq-11"></span>
+          <span class="sq" id="sq-12"></span>
+        </div>
+      </div>
+    </div>
+
+    <button class="return-button" (click)="retornarHome()">Retornar</button>
+
+  </div>
+  

@@ -1,0 +1,4 @@
+<div [@routeAnimations]="getRouterOutletState(outlet)">
+  <app-menucomponent *ngIf="isMenuVisible"></app-menucomponent>
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
