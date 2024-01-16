@@ -47,4 +47,29 @@ export class AuthService {
     return this.usuarioAutenticado;
   }
 
+  getPIniciante(): number {
+    // Verifica se o usuário está definido e retorna pIniciante
+    return this.usuario?.pIniciante ?? 0;
+  }
+
+  getPModerado(): number {
+    // Verifica se o usuário está definido e retorna pIniciante
+    return this.usuario?.pModerado ?? 0;
+  }
+
+  getPExperiente(): number {
+    // Verifica se o usuário está definido e retorna pIniciante
+    return this.usuario?.pExperiente ?? 0;
+  }
+  
+  getPMestre(): number {
+    // Verifica se o usuário está definido e retorna pIniciante
+    return this.usuario?.pMestre ?? 0;
+  }
+
+  getPokemonList(): number[] {
+    // Verifica se o usuário está definido e retorna pIniciante
+    return this.usuario?.pokemons ?? 0;
+  }
+
 }

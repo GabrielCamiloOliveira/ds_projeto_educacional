@@ -11,7 +11,7 @@ export class UsuarioService {
 
   /* private baseApiUrl = environment.baseApiUrl; */
   /* Base da API*/
-  private baseApiUrl = 'http://localhost:8080/api/educacional';
+  private baseApiUrl = 'http://localhost:8080/api/plataforma';
 
   /* Especificando */
   private apiUrl = `${this.baseApiUrl}/usuario`;
@@ -41,17 +41,17 @@ export class UsuarioService {
     return this.http.get<Response<Usuario>>(url);
   }
   
-  updateUsuario(cliente: any): Observable<any>{
+  updateUsuario(usuario: any): Observable<any>{
     const data = {
-      username: cliente.nome,
-      email: cliente.email,
-      senha: cliente.senha,
-      pokemons: cliente.pokemons.add.pokemons,
-      pokemonAtual : cliente.pokemonAtual,
-      pIniciante: cliente.pIniciante,
-      pModerado: cliente.pModerado,
-      pExperiente: cliente.pExperiente,
-      pMestre: cliente.pMestre,
+      username: usuario.nome,
+      email: usuario.email,
+      senha: usuario.senha,
+      pokemons: usuario.pokemons.add.pokemons,
+      pokemonAtual : usuario.pokemonAtual,
+      pIniciante: usuario.pIniciante,
+      pModerado: usuario.pModerado,
+      pExperiente: usuario.pExperiente,
+      pMestre: usuario.pMestre,
     };
     const result = this.http.put(this.apiUrl, data);
     return result;
@@ -67,5 +67,5 @@ export class UsuarioService {
   getUserId() {
     return this.userId;
   }
-
+  
 }

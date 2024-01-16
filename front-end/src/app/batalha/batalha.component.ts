@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { PokeapiService } from '../services/pokeapi.service';
 import { AuthService } from '../services/auth.service';
 import { Usuario } from '../interfaces/usuario';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-batalha',
@@ -18,7 +19,8 @@ export class BatalhaComponent implements OnInit, OnDestroy {
     private dificuldadeService: DificuldadeService,
     private pokeapiService: PokeapiService,
     private cdr: ChangeDetectorRef,
-    private authService: AuthService) {}
+    private authService: AuthService,
+    private usuarioService: UsuarioService) {}
 
   @Input() lifeEnemyWidth: number = 14.4; // Inicialmente, a barra de vida está cheia
   @Input() lifeUserWidth: number = 13.8; // Inicialmente, a barra de vida está cheia
@@ -123,10 +125,26 @@ handleBlueboxClick() {
         this.isPokemonVisible = true;
 
         //fazer um if desse para cada dificuldade (verifica a dificuldade atual)
-        const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: 3, pokemons: [this.enemyPokemonNumber]};
-        this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
-        // Lógica para lidar com a resposta (se necessário)
-        });
+        if (this.dificuldadeSelecionada == "Iniciante") {
+          const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPIniciante()+3.125), pokemons: [this.enemyPokemonNumber]};
+          this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
+          });
+        }
+        else if (this.dificuldadeSelecionada == "Moderado") {
+          const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPModerado()+2.32), pokemons: [this.enemyPokemonNumber]};
+          this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
+          });
+        }
+        else if (this.dificuldadeSelecionada == "Experiente") {
+          const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPExperiente()+2.38), pokemons: [this.enemyPokemonNumber]};
+          this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
+          });
+        }
+        else {
+          const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPMestre()+3.04), pokemons: [this.enemyPokemonNumber]};
+          this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
+          });
+        }
 
         this.enunciado = this.enemyname + " foi adicionado à sua coleção! <br> Clique para continuar...";
         this.numberOfClicks++;
