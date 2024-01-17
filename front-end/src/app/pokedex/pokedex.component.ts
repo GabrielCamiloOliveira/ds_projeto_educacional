@@ -22,7 +22,7 @@ export class PokedexComponent implements OnInit {
     const pokemonCount = 151;
 
     for (let i = 1; i <= pokemonCount; i++) {
-      if (this.authService.getPokemonList().includes(i)) {
+      if ((this.authService.getPokemonList().includes(i)) == true) {
       //verifica se a lista de pokémons do usuário possui o pokémon
       this.pokeapiService.getPokemonDetails(i).subscribe(
         (data) => {

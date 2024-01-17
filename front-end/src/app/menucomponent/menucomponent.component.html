@@ -4,6 +4,18 @@
   <!-- Imagem e texto para animação -->
   <img src="assets/images/exercicioPreview.png" alt="Exercise Image" class="exercise-image" *ngIf="showExerciseInfo">
   <div class="typed-out exercise-text" id="exerciseText"  [innerHTML]="ExercicioTexto" *ngIf="showExerciseInfo"> {{ExercicioTexto}} </div>
+  
+  <!-- Imagem e texto para animação -->
+  <img src="assets/images/ColecaoPreview.png" alt="Colecao Image" class="colecao-image" *ngIf="showColecaoInfo">
+  <div class="typed-out colecao-text" id="colecaoText"  [innerHTML]="ColecaoTexto" *ngIf="showColecaoInfo"> {{ColecaoTexto}} </div>
+
+  <!-- Imagem e texto para animação -->
+  <img src="assets/images/AprenderPreview.png" alt="Aprender Image" class="aprender-image" *ngIf="showAprenderInfo">
+  <div class="typed-out aprender-text" id="aprenderText"  [innerHTML]="AprenderTexto" *ngIf="showAprenderInfo"> {{AprenderTexto}} </div>
+
+  <!-- Imagem e texto para animação -->
+  <img src="assets/images/AjudaPreview2.png" alt="Ajuda Image" class="ajuda-image" *ngIf="showAjudaInfo">
+  <div class="typed-out ajuda-text" id="ajudaText"  [innerHTML]="AjudaTexto" *ngIf="showAjudaInfo"> {{AjudaTexto}} </div>
 
   <!-- Posicionamento absoluto dos botões -->
   <button class="buttonAjuda grupo-botoes" (click)="handleButtonClick('assets/images/ajuda.png')"></button>

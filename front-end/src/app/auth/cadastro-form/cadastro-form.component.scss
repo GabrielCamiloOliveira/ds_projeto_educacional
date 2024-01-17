@@ -16,6 +16,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   
   .form-container {
@@ -112,5 +113,15 @@ body {
   }
 
   .loginBack:hover {
-    background-color: #124e43; /* Cor diferente ao passar o mouse */
+    transform: scale(1.2);
+  }
+
+  .pokeImg {
+    opacity: 80%;
+    margin-left: auto;
+    position: absolute;
+    resize: horizontal;
+    right: 10px;
+    max-width: 800px;
+    max-height: 800px;
   }
