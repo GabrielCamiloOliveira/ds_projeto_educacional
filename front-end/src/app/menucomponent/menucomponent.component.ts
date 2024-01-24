@@ -16,7 +16,7 @@ export class MenucomponentComponent implements AfterViewInit {
   showAjudaInfo = false;
   MenuText = "Menu Principal";
   ExercicioTexto = "Enfrente e colete Pokémons adversários ao <br> resolver expressões numéricas. Escolha seu <br> Pokémon na Coleção, avance para niveis mais <br> desafiadores e fortaleça suas habilidades <br> matemáticas!";
-  ColecaoTexto = "Consulte seus pokémons adquiridos nos exercícios <br> e descrubra curiosidades sobre eles!";
+  ColecaoTexto = "Consulte seus pokémons adquiridos nos exercicios <br> e descrubra curiosidades sobre eles!";
   AprenderTexto = "Visualize exemplos de exercicios resolvidos, <br> aprenda como funcionam os operadores <br> matemáticos e como resolver uma expressão!  ";
   AjudaTexto = "Entenda mais sobre as funcionalidades da aplicação <br> ou altere suas informações pessoais";
 
@@ -48,9 +48,9 @@ export class MenucomponentComponent implements AfterViewInit {
       this.router.navigate([route]);
 
     } else if (imageLink.includes('colecao')) {
-      /*const route = '/pokedex';
+      const route = '/pokedex';
       this.menuButtonClick.emit(route);
-      this.router.navigate([route]);*/
+      this.router.navigate([route]);
 
     } else if (imageLink.includes('ajuda')) {
       /*const route = '/ajuda';

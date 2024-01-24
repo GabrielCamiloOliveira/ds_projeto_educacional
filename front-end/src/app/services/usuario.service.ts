@@ -13,7 +13,7 @@ export class UsuarioService {
   /* Base da API*/
   private baseApiUrl = 'http://localhost:8080/api/plataforma';
 
-  /* Especificando */
+  /* Especificando a URL */
   private apiUrl = `${this.baseApiUrl}/usuario`;
 
   constructor(private http: HttpClient) { }
@@ -57,7 +57,7 @@ export class UsuarioService {
     return result;
   }
 
-  /* Armazenar o ID do usuário para Navegar com os dados dele*/
+  /* Armazenar o ID do usuário para Navegar com seus dados*/
   private userId: number=0;
 
   setUserId(id: number) {

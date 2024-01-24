@@ -125,7 +125,7 @@ handleBlueboxClick() {
         this.isPokemonVisible = true;
 
         //fazer um if desse para cada dificuldade (verifica a dificuldade atual)
-        if (this.dificuldadeSelecionada == "Iniciante") {
+        /*if (this.dificuldadeSelecionada == "Iniciante") {
           const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPIniciante()+3.125), pokemons: [this.enemyPokemonNumber]};
           this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
           });
@@ -144,7 +144,7 @@ handleBlueboxClick() {
           const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPMestre()+3.04), pokemons: [this.enemyPokemonNumber]};
           this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
           });
-        }
+        }*/
 
         this.enunciado = this.enemyname + " foi adicionado à sua coleção! <br> Clique para continuar...";
         this.numberOfClicks++;

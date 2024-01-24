@@ -1,0 +1,17 @@
+.return-button {
+    font-family: 'Pokemon';
+    font-size: 60%;
+    position: absolute;
+    left: 2000px;
+    background-color: #8B0000; /* Vermelho vinho */
+    color: #FFFFFF; /* Texto branco */
+    padding: 15px 25px;
+    border: 2px solid #000000; /* Borda preta */
+    border-radius: 32px; /* Cantos arredondados */
+    cursor: pointer;
+    margin: 1px; /* Margem de 1px em preto */
+  }
+  
+  .return-button:hover {
+    background-color: #B22222; /* Cor mais clara ao passar o mouse */
+  }
