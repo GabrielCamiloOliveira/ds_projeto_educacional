@@ -9,6 +9,8 @@ import student.exception.StudentAlreadyExistsException;
 import student.exception.StudentNotFoundException;
 import student.mapper.StudentMapper;
 import student.repository.StudentRepository;
+
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,6 +26,10 @@ public class StudentService {
     public StudentService(StudentRepository studentRepository, PasswordEncoder passwordEncoder) {
         this.studentRepository = studentRepository;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    public List<Student> getStudents(){
+        return studentRepository.findAll();
     }
 
     public String createUser(StudentAccountDTO studentAccountDTO) {

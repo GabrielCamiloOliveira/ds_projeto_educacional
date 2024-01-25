@@ -1,0 +1,31 @@
+<img src="./assets/images/loginBack.png" class="background-image">
+  <body>
+    <div class="background-container">
+      <div class="form-container">
+        <form (ngSubmit)="submit()" [formGroup]="userForm" #formDir="ngForm">
+          <h1>{{ "Login" }}</h1>
+
+          <div class="form-group">
+            <input type="text" placeholder="E-mail" formControlName="email" required />
+          </div>
+
+          <div class="form-group">
+            <input type="password" placeholder="Senha" formControlName="senha" required />
+          </div>
+
+          <input class="submit" type="submit" value="Confirmar" />
+
+          <label><a href="/cadastro"> ou cadastre-se clicando aqui </a></label>
+
+          <div class="googleContainer">
+            <button class="googleButton">
+                <img class="google" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="googlelogo">
+                <span class="googleText">Login com o Google</span>
+            </button>
+        </div>
+        </form>
+      </div>
+      <img src="./assets/images/loginPreview.png" class="loginPreview">
+    </div>
+    
+  </body>

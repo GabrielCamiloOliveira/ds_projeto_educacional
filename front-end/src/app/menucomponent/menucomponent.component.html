@@ -1,10 +1,30 @@
-<!-- app.component.html -->
+<div *ngIf="isMenuVisible">
 <div class="background-container">
-  <img src='assets\images\Menuzoom.jpg' alt="Background Image" class="background-image">
+
+  <!-- Imagem e texto para animação -->
+  <img src="assets/images/exercicioPreview.png" alt="Exercise Image" class="exercise-image" *ngIf="showExerciseInfo">
+  <div class="typed-out exercise-text" id="exerciseText"  [innerHTML]="ExercicioTexto" *ngIf="showExerciseInfo"> {{ExercicioTexto}} </div>
+
   <!-- Posicionamento absoluto dos botões -->
-  <button class="buttonAjuda" (click)="handleButtonClick('assets/images/ajuda.png')"></button>
-  <button class="buttonColecao" (click)="handleButtonClick('assets/images/colecao.png')"></button>
-  <button class="buttonExercicios" (click)="handleButtonClick('assets/images/exercicios.png')"></button>
-  <button class="buttonAprender" (click)="handleButtonClick('assets/images/aprender.png')"></button>
-  <!-- Adicione mais botões conforme necessário -->
+  <button class="buttonAjuda grupo-botoes" (click)="handleButtonClick('assets/images/ajuda.png')"></button>
+  <button class="buttonColecao grupo-botoes" (click)="handleButtonClick('assets/images/colecao.png')"></button>
+  <button class="buttonExercicios grupo-botoes" (click)="handleButtonClick('assets/images/exercicios.png')"></button>
+  <button class="buttonAprender grupo-botoes" (click)="handleButtonClick('assets/images/aprender.png')"></button>
+
+  <!-- Imagens para animações -->
+  <img class ="predioUrban grupo-imagens" src="assets/images/predioUrban.png">
+  <img class ="pokecenter grupo-imagens" src="assets/images/pokecenter.png">
+  <img class ="cassino grupo-imagens" src="assets/images/cassino.png">
+  <img class ="predioMenor grupo-imagens" src="assets/images/predioMenor.png">
+  
+  <img src='assets\images\urban.png' alt="Background Image" class="background-image">
+
+  <!-- tag de áudio -->
+  <audio class="audiocontroller" controls autoplay loop volume="0.01">
+    <source src=".\assets\music\41 Vermilion City - Pokémon FireRed and AquaBlue Super Music Collection (320 kbps).mp3" type="audio/mp3">
+    Seu navegador não suporta a tag de áudio.
+  </audio>
+
+  <button class="return-button" (click)="retornarHome()">Log Out</button>
+</div>
 </div>
