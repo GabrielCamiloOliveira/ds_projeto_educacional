@@ -4,6 +4,7 @@ import achievement.entity.Achievement;
 import activity.entity.Activity;
 import entity.Auditable;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import responsible.entity.Responsible;
 import java.util.List;
@@ -34,6 +35,17 @@ public class Student extends Auditable {
     @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
+    private Double progressoFacil;
+
+    @Column(nullable = false)
+    private Double progressoMedio;
+
+    @Column(nullable = false)
+    private Double progressoDificil;
+
+    @Column(nullable = false)
+    private Double progressoInsano;
 
     @ManyToMany(mappedBy = "student")
     private List<Activity> doneActivities;
@@ -159,5 +171,35 @@ public class Student extends Auditable {
         this.responsible = responsible;
     }
 
+    public Double getProgressoFacil() {
+        return progressoFacil;
+    }
 
+    public void setProgressoFacil(Double progressoFacil) {
+        this.progressoFacil = progressoFacil;
+    }
+
+    public Double getProgressoMedio() {
+        return progressoMedio;
+    }
+
+    public void setProgressoMedio(Double progressoMedio) {
+        this.progressoMedio = progressoMedio;
+    }
+
+    public Double getProgressoDificil() {
+        return progressoDificil;
+    }
+
+    public void setProgressoDificil(Double progressoDificil) {
+        this.progressoDificil = progressoDificil;
+    }
+
+    public Double getProgressoInsano() {
+        return progressoInsano;
+    }
+
+    public void setProgressoInsano(Double progressoInsano) {
+        this.progressoInsano = progressoInsano;
+    }
 }

@@ -1,5 +1,6 @@
 package student.dto;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,11 @@ public class StudentAccountDTO {
 
     @NotNull
     @NotEmpty
+    @Size(max = 50)
+    private String email;
+
+    @NotNull
+    @NotEmpty
     @Size(max = 100)
     private String name;
 
@@ -34,4 +40,20 @@ public class StudentAccountDTO {
     @NotNull
     @Max(value = 10)
     private Double average;
+
+    @NotNull
+    @Max(value = 100)
+    private Double progressoFacil;
+
+    @NotNull
+    @Max(value = 100)
+    private Double progressoMedio;
+
+    @NotNull
+    @Max(value = 100)
+    private Double progressoDificil;
+
+    @NotNull
+    @Max(value = 100)
+    private Double progressoInsano;
 }
