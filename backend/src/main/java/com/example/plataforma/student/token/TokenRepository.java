@@ -1,4 +1,4 @@
-//package com.example.plataforma.achievement.student.token;
+//package com.example.plataforma.student.token;
 //
 //import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.data.jpa.repository.Query;

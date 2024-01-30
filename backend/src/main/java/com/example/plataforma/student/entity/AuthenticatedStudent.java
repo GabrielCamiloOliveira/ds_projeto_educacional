@@ -1,4 +1,4 @@
-//package com.example.plataforma.achievement.student.com.example.plataforma.achievement.entity;
+//package com.example.plataforma.student.entity;
 //
 //import lombok.AllArgsConstructor;
 //import org.springframework.security.core.GrantedAuthority;
@@ -8,7 +8,7 @@
 //@AllArgsConstructor
 //public class AuthenticatedStudent implements UserDetails {
 //
-//    private Student com.example.plataforma.achievement.student;
+//    private Student com.example.plataforma.entity.student;
 //
 //    @Override
 //    public Collection<? extends GrantedAuthority> getAuthorities() { return null; }

@@ -34,16 +34,16 @@ public class Student extends Auditable {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+   // @Column(nullable = false)
     private Double progressoFacil;
 
-    @Column(nullable = false)
+   // @Column(nullable = false)
     private Double progressoMedio;
 
-    @Column(nullable = false)
+   //@Column(nullable = false)
     private Double progressoDificil;
 
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private Double progressoInsano;
 
     @ManyToMany
