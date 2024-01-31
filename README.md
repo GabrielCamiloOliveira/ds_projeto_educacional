@@ -6,7 +6,7 @@
 
 - Cadastro e login do usuário
 
-<iframe src="https://giphy.com/embed/EF2spS2cwkKBhGxVBF" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/EF2spS2cwkKBhGxVBF">via GIPHY</a></p>
+(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnNxZXJveHEwMTVobWoyYTB4b2N4a3l6cjh3aDNyaWVyOWpmd293biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EF2spS2cwkKBhGxVBF/giphy.gif)
 
 - Menu principal
 
