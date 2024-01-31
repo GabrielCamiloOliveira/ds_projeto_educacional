@@ -12,17 +12,20 @@
 ![GIF do login e cadastro](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnNxZXJveHEwMTVobWoyYTB4b2N4a3l6cjh3aDNyaWVyOWpmd293biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EF2spS2cwkKBhGxVBF/giphy.gif)
 
 - Menu principal
+  - [Vídeo em alta resolução](https://drive.google.com/file/d/1p0ZdkY7yG9DK-5XnCo7VNPHHdgKwoMgZ/view?usp=sharing)
 
 ![via GIPHY](https://media.giphy.com/media/9k7r83Q9ayOkTpMTa9/giphy.gif)
 
 - Exercícios
   - Seleção de dificuldade
   - Geração aleatória de expressões numéricas e opções de resposta
+  - [Vídeo em alta resolução](https://drive.google.com/file/d/1SRWv37ed4LTzy8TOnmcXWwx_sXFMcmBf/view?usp=sharing)
 
 ![via GIPHY](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmt5NndtbXJhNjdseGdjdzNhZjN0YXB6N3plZnFvcHJjdTU2NDh6eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2iUE4k49pnoci3AHvN/giphy.gif)
 
 - Coleção do usuário
   - Organiza e exibe os Pokémons conquistados por tipo ou ordem numérica
+  - [Vídeo em alta resolução](https://drive.google.com/file/d/1UXGD0FBA7U8UIcYTOdsvodHcp4LaS4IG/view?usp=sharing)
 
 ![via GIPHY](https://media.giphy.com/media/pG1JEu7vvKNsqqkwQp/giphy.gif)
 
