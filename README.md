@@ -24,6 +24,7 @@
 
 - Coleção do usuário
   - Organiza e exibe os Pokémons conquistados por tipo ou ordem numérica
+  - Imagens e informações dos Pokémons são recebidos a partir da [PokéAPI](https://pokeapi.co/)
   - [Vídeo em alta resolução](https://drive.google.com/file/d/171tAtYfuOh2xnehCfc2vdjimpxmHpUz2/view?usp=sharing)
 
 ![via GIPHY](https://media.giphy.com/media/pG1JEu7vvKNsqqkwQp/giphy.gif)
