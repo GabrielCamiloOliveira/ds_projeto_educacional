@@ -18,7 +18,11 @@
 
 - Banco de Dados postgreSQL
 
-![Imagem do banco de dados](https://imgur.com/a/vNt2v7F)
+<blockquote class="imgur-embed-pub" lang="en" data-id="a/vNt2v7F">
+    <a href="//imgur.com/a/vNt2v7F">Banco de Dados postgreSQL</a>
+</blockquote>
+<script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+
 
 # Backlog do produto
 
