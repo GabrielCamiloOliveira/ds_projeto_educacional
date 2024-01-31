@@ -18,8 +18,6 @@
 
 ![via GIPHY](https://media.giphy.com/media/pG1JEu7vvKNsqqkwQp/giphy.gif)
 
-- Banco de Dados postgreSQL
-
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/vNt2v7F">
     <a href="//imgur.com/a/vNt2v7F">Banco de Dados postgreSQL</a>
 </blockquote>
