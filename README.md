@@ -12,13 +12,9 @@
 
 ![via GIPHY](https://media.giphy.com/media/9k7r83Q9ayOkTpMTa9/giphy.gif)
 
-- Seleção de dificuldade de exercícios
-
-![Imagem da seleção de dificuldade](https://i.imgur.com/jOAtCU0.png)
-
 - Exercícios
- - Seleção de dificuldade
- - Geração aleatória de expressões numéricas e opções de resposta
+  - Seleção de dificuldade
+  - Geração aleatória de expressões numéricas e opções de resposta
 
 ![via GIPHY](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmt5NndtbXJhNjdseGdjdzNhZjN0YXB6N3plZnFvcHJjdTU2NDh6eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2iUE4k49pnoci3AHvN/giphy.gif)
 
