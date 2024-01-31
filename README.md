@@ -4,7 +4,10 @@
 
 # Funcionalidades implementadas
 
-- Cadastro e login do usuário
+- Tela inicial
+  - Login por e-mail e senha
+  - Cadastro com nome de usuário, e-mail e senha
+  - [Vídeo em alta resolução](https://drive.google.com/file/d/1xP1uLdZ0YFyxG4l_mZEdQPb74Ot97tWz/view?usp=drive_link)
 
 ![GIF do login e cadastro](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnNxZXJveHEwMTVobWoyYTB4b2N4a3l6cjh3aDNyaWVyOWpmd293biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EF2spS2cwkKBhGxVBF/giphy.gif)
 
@@ -19,6 +22,7 @@
 ![via GIPHY](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmt5NndtbXJhNjdseGdjdzNhZjN0YXB6N3plZnFvcHJjdTU2NDh6eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2iUE4k49pnoci3AHvN/giphy.gif)
 
 - Coleção do usuário
+  - Organiza e exibe os Pokémons conquistados por tipo ou ordem numérica
 
 ![via GIPHY](https://media.giphy.com/media/pG1JEu7vvKNsqqkwQp/giphy.gif)
 
