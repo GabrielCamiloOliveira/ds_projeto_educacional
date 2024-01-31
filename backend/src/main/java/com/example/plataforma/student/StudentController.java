@@ -16,6 +16,8 @@ import java.util.List;
 @RequestMapping(path = "api/v1/student")
 public class StudentController {
 
+    // Controlador principal do serviço estudante
+
     private final StudentService studentService;
 
     public StudentController(StudentService studentService) {
