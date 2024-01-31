@@ -6,7 +6,7 @@
 
 - Cadastro e login do usuário
 
-(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnNxZXJveHEwMTVobWoyYTB4b2N4a3l6cjh3aDNyaWVyOWpmd293biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EF2spS2cwkKBhGxVBF/giphy.gif)
+![GIF do login e cadastro](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnNxZXJveHEwMTVobWoyYTB4b2N4a3l6cjh3aDNyaWVyOWpmd293biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EF2spS2cwkKBhGxVBF/giphy.gif)
 
 - Menu principal
 
