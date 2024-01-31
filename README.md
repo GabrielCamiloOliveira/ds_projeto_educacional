@@ -14,9 +14,11 @@
 
 - Seleção de dificuldade de exercícios
 
-
+![Imagem da seleção de dificuldade](https://i.imgur.com/jOAtCU0.png)
 
 - Exercícios e algoritmo de geração de expressões
+
+![via GIPHY](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmt5NndtbXJhNjdseGdjdzNhZjN0YXB6N3plZnFvcHJjdTU2NDh6eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2iUE4k49pnoci3AHvN/giphy.gif)
 
 - Coleção do usuário
 
@@ -24,7 +26,7 @@
 
 - Banco de Dados postgreSQL
 
-![Imagem do banco de dados](https://imgur.com/gallery/vNt2v7F.png)
+![Imagem do banco de dados](https://i.imgur.com/1IdgPXD.png)
 
 # Backlog do produto
 
