@@ -2,8 +2,10 @@ package com.example.plataforma.student;
 
 import com.example.plataforma.student.dto.StudentAccountDTO;
 import com.example.plataforma.student.entity.Student;
+import com.example.plataforma.student.exception.UserException;
 import com.example.plataforma.student.service.StudentService;
 import jakarta.validation.Valid;
+import jdk.jshell.spi.ExecutionControl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +32,19 @@ public class StudentController {
         String result = studentService.createUser(studentDTO);
         return ResponseEntity.ok(result);
     }
+
+    //login
+
+    @GetMapping(path = "/login")
+    public ResponseEntity<Student> login(
+            @RequestParam("email") String email,
+            @RequestParam("senha") String senha
+    )throws UserException {
+        Student student = studentService.login(email, senha);
+        return new ResponseEntity<>(student, HttpStatus.OK);
+    }
+
+
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)

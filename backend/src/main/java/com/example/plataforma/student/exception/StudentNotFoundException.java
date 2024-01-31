@@ -9,4 +9,5 @@ public class StudentNotFoundException extends EntityNotFoundException {
     }
 
     public StudentNotFoundException(String username) { super(String.format("Student with id %s not exists!", username)); }
+
 }

@@ -1,7 +1,7 @@
-//package com.example.plataforma.achievement.student.controller;
+//package com.example.plataforma.student.controller;
 //
-//import com.example.plataforma.achievement.config.AuthenticationRequest;
-//import com.example.plataforma.achievement.config.AuthenticationResponse;
+//import com.example.plataforma.config.AuthenticationRequest;
+//import com.example.plataforma.config.AuthenticationResponse;
 //import jakarta.servlet.http.HttpServletRequest;
 //import jakarta.servlet.http.HttpServletResponse;
 //import lombok.RequiredArgsConstructor;
@@ -10,7 +10,7 @@
 //import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RestController;
-//import com.example.plataforma.achievement.student.service.AuthenticationService;
+//import com.example.plataforma.student.service.AuthenticationService;
 //import java.io.IOException;
 //
 //@RestController
