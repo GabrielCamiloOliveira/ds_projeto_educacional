@@ -40,8 +40,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   submit() {
-    this.router.navigate(['/home']); //provisório
     this.authService.login(this.userForm.value);
+    console.log(this.userForm.value);
   }
 
 }

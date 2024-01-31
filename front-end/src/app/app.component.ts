@@ -26,7 +26,7 @@ import { AuthService } from './services/auth.service';
 
 export class AppComponent implements OnInit {
   
-  isMenuVisible = true;
+  isMenuVisible = false;
 
   constructor(private router: Router,  private authService: AuthService) {
     this.router.events.subscribe((event) => {
@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.isMenuVisible = this.authService.usuarioEstaAutenticado();
+        this.isMenuVisible = false;
       }
     });
   }

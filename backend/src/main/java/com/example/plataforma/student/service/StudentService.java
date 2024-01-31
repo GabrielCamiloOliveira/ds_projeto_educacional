@@ -2,7 +2,6 @@ package com.example.plataforma.student.service;
 import com.example.plataforma.student.exception.UserException;
 import com.example.plataforma.student.repository.StudentRepository;
 import jdk.jshell.spi.ExecutionControl;
-import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.example.plataforma.student.dto.StudentAccountDTO;
@@ -34,7 +33,6 @@ public class StudentService {
 
 
 
-    @Autowired
     public StudentService (StudentRepository studentRepository){
         this.studentRepository = studentRepository;
     }

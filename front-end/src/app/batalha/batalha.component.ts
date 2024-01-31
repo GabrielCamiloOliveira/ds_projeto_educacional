@@ -7,6 +7,7 @@ import { PokeapiService } from '../services/pokeapi.service';
 import { AuthService } from '../services/auth.service';
 import { Usuario } from '../interfaces/usuario';
 import { UsuarioService } from '../services/usuario.service';
+import { Achievement } from '../interfaces/achievement';
 
 @Component({
   selector: 'app-batalha',
@@ -123,28 +124,34 @@ handleBlueboxClick() {
     if(this.numberOfClicks == 0){
       if(this.resultado == true){
         this.isPokemonVisible = true;
+        const achievement: Achievement = createAchievement(this.enemyPokemonNumber);
 
         //fazer um if desse para cada dificuldade (verifica a dificuldade atual)
-        /*if (this.dificuldadeSelecionada == "Iniciante") {
-          const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPIniciante()+3.125), pokemons: [this.enemyPokemonNumber]};
+        if (this.dificuldadeSelecionada == "Iniciante") {
+          const achievement: Achievement = createAchievement(this.enemyPokemonNumber);
+          const usuarioAtualizado: Usuario = { ...this.authService.usuario, progressoFacil: (this.authService.getPIniciante()+3.125)};
+          usuarioAtualizado.achievementList.push(achievement);
           this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
           });
         }
         else if (this.dificuldadeSelecionada == "Moderado") {
-          const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPModerado()+2.32), pokemons: [this.enemyPokemonNumber]};
+          const usuarioAtualizado: Usuario = { ...this.authService.usuario, progressoMedio: (this.authService.getPModerado()+2.32)};
+          usuarioAtualizado.achievementList.push(achievement);
           this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
           });
         }
         else if (this.dificuldadeSelecionada == "Experiente") {
-          const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPExperiente()+2.38), pokemons: [this.enemyPokemonNumber]};
+          const usuarioAtualizado: Usuario = { ...this.authService.usuario, progressoDificil: (this.authService.getPExperiente()+2.38)};
+          usuarioAtualizado.achievementList.push(achievement);
           this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
           });
         }
         else {
-          const usuarioAtualizado: Usuario = { ...this.authService.usuario, pIniciante: (this.authService.getPMestre()+3.04), pokemons: [this.enemyPokemonNumber]};
+          const usuarioAtualizado: Usuario = { ...this.authService.usuario, progressoInsano: (this.authService.getPMestre()+3.04)};
+          usuarioAtualizado.achievementList.push(achievement);
           this.authService.updateUsuario(usuarioAtualizado).subscribe(response => {
           });
-        }*/
+        }
 
         this.enunciado = this.enemyname + " foi adicionado à sua coleção! <br> Clique para continuar...";
         this.numberOfClicks++;
@@ -444,4 +451,8 @@ private addHitAnimation(elementId: string) {
 
 }
 
+
+function createAchievement(number: number): Achievement {
+  return { id: number };
+}
 

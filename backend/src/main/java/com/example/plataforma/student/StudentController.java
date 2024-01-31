@@ -33,18 +33,14 @@ public class StudentController {
         return ResponseEntity.ok(result);
     }
 
-    //login
-
-    @GetMapping(path = "/login")
+    @GetMapping(path = "/login") // Mudança aqui: alterando para GET
     public ResponseEntity<Student> login(
-            @RequestParam("email") String email,
-            @RequestParam("senha") String senha
+            @RequestParam String email,
+            @RequestParam String senha
     )throws UserException {
         Student student = studentService.login(email, senha);
         return new ResponseEntity<>(student, HttpStatus.OK);
     }
-
-
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)

@@ -1,7 +1,6 @@
 package com.example.plataforma.controller;
 
 import com.example.plataforma.service.AchievementService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class AchievementController {
     AchievementService achievementService;
 
-    @Autowired
     public AchievementController(AchievementService achievementService) { this.achievementService = achievementService; }
 
     // @PostMapping

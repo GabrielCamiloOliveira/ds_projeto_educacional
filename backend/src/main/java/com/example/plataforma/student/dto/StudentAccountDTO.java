@@ -12,27 +12,27 @@ public class StudentAccountDTO {
 
     private Long id;
 
-    @NotNull
+    
     @NotEmpty
     @Size(max = 30)
     private String username;
 
-    @NotNull
+    
     @NotEmpty
     @Size(max = 50)
     private String email;
 
-    @NotNull
+    
     @NotEmpty
     @Size(max = 100)
     private String name;
 
-    @NotNull
+    
     @NotEmpty
     @Size(min = 6, max = 15)
     private String password;
 
-    @NotNull
+    
 
     private Integer age;
 

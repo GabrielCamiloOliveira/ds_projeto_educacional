@@ -5,9 +5,9 @@ import jakarta.persistence.EntityNotFoundException;
 public class StudentNotFoundException extends EntityNotFoundException {
 
     public StudentNotFoundException(Long id) {
-        super(String.format("Student with id %s not exists!", id));
+        super("Student with id %s not exists!".formatted(id));
     }
 
-    public StudentNotFoundException(String username) { super(String.format("Student with id %s not exists!", username)); }
+    public StudentNotFoundException(String username) { super("Student with id %s not exists!".formatted(username)); }
 
 }
