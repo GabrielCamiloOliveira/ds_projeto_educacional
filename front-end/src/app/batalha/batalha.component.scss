@@ -1,0 +1,353 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.background-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.return-button {
+    font-family: 'Pokemon';
+    font-size: 60%;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    background-color: #8B0000; /* Vermelho vinho */
+    color: #FFFFFF; /* Texto branco */
+    padding: 15px 25px;
+    border: 2px solid #000000; /* Borda preta */
+    border-radius: 35%; /* Cantos arredondados */
+    cursor: pointer;
+    margin: 1px; /* Margem de 1px em preto */
+  }
+  
+  .return-button:hover {
+    background-color: #B22222; /* Cor mais clara ao passar o mouse */
+  }
+
+  .battlebox {
+    width: 90%;
+    height: 35%;
+    position: absolute;
+    top: 69.5%;
+    left: 4.5%;
+  }
+
+  .blueboxButton {
+    background: url('/assets/images/bluebox.png') no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    width: 90%;
+    height: 26.5%;
+    top: 73%;
+    left: 4.5%;
+  }
+
+  .lifeEnemy {
+    width: 30%;
+    height: 20%;
+    position: absolute;
+    top: 8%;
+    left: 10%;
+  }
+
+  .lifeUser {
+    width: 30%;
+    height: 20%;
+    position: absolute;
+    top: 52%;
+    left: 50%;
+  }
+
+  .lifeBarEnemy {
+    background-color: rgb(0, 183, 0); /* Cor da barra de vida do inimigo */
+    position: absolute;
+    height: 2%;
+    top: 19.8%;
+    left: 21.7%;
+  }
+
+  .lifeBarUser {
+    background-color: rgb(0, 183, 0); /* Cor da barra de vida do usuário */
+    position: absolute;
+    height: 1.48%;
+    top: 61.25%;
+    left: 63.85%;
+  }
+
+  .enunciado {
+    font-family: 'Pokemon';
+    font-size: 115%;
+    position: absolute;
+    top: 80%;
+    left: 8.1%;
+    color:#FFFFFF;
+  }
+
+  .expressao {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 280%;
+    position: absolute;
+    top: 87.5%;
+    left: 8.1%;
+    color:#FFFFFF;
+  }
+
+  .enemyImg {
+    position: absolute;
+    top: 29%;
+    left: 60%;
+    z-index: -1;
+    animation: jump 3s;
+  }
+
+.enemyImg-Iniciante {
+  width: 12.5%;
+  height: 20%;
+  top: 33%;
+  position: absolute;
+}
+
+.enemyImg-Moderado {
+  width: 13.5%;
+  height: 22.5%;
+}
+
+.enemyImg-Experiente {
+  width: 16%;
+  height: 25%;
+}
+
+.enemyImg-Mestre {
+  width: 20.5%;
+  height: 33%;
+  top: 23%;
+  left: 55%;
+}
+
+  .userImg {
+    width: 25%;
+    height: 45%;
+    position: absolute;
+    top: 44%;
+    left: 14%;
+    z-index: -1;
+    animation: slide-in 3s;
+  }
+
+  @keyframes blinkAnimation {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .winnerImg {
+    position: absolute;
+    top: 78%;
+    left: 72%;
+    height: 18%;
+    width: 10%;
+    z-index: 2;
+    animation: blinkAnimation 1s infinite; /* Ajuste a duração conforme necessário */
+  }
+
+  .resposta1 {
+    font-family: 'Pokemon';
+    font-weight: bold;
+    font-size: 115%;
+    position: absolute;
+    top: 78.8%;
+    left: 52%;
+    color:#000000;
+    border: none;
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+
+  .resposta2 {
+    font-family: 'Pokemon';
+    font-weight: bold;
+    font-size: 115%;
+    position: absolute;
+    top: 78.8%;
+    left: 69%;
+    color:#000000;
+    border: none;
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+
+  .resposta3 {
+    font-family: 'Pokemon';
+    font-weight: bold;
+    font-size: 115%;
+    position: absolute;
+    top: 88.8%;
+    left: 52%;
+    color:#000000;
+    border: none;
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+
+  .resposta4 {
+    font-family: 'Pokemon';
+    font-weight: bold;
+    font-size: 115%;
+    position: absolute;
+    top: 88.8%;
+    left: 69%;
+    color:#000000;
+    border: none;
+    background-color: #f8f8f8;
+    cursor: pointer;
+  }
+
+  .username {
+    font-family: 'Pokemon';
+    font-weight: bold;
+    font-size: 115%;
+    position: absolute;
+    top: 53.5%;
+    left: 55.2%;
+    color:#000000;
+  }
+
+  .enemyname {
+    font-family: 'Pokemon';
+    font-size: 115%;
+    font-weight: bold;
+    position: absolute;
+    top: 10.5%;
+    left: 13%;
+    color:#000000;
+  }
+
+  .jumping-image {
+    transition: transform 0.5s ease;
+    backface-visibility: hidden;
+  }
+
+  @keyframes jump {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-20px);
+    }
+    60% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .image-pixel-art {
+    image-rendering: optimizeSpeed;             /* IE */
+    image-rendering: -moz-crisp-edges;          /* Firefox */
+    image-rendering: -o-crisp-edges;            /* Opera */
+    image-rendering: -webkit-optimize-contrast; /* Webkit (Chrome) */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed */
+    image-rendering: crisp-edges;               /* CSS4 Proposed */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE (fallback) */
+  }
+
+  @keyframes hitAnimation {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateX(-30px);
+    }
+    60% {
+        transform: translateX(0px);
+    }
+}
+
+.hit-animation {
+    animation: hitAnimation 0.5s ease; /* Ajuste a duração e a função de temporização conforme necessário */
+}
+
+.mark {
+  position: absolute;
+  width: 11%;
+  height: 20%;
+  top: 70%;
+  left: 80%;
+  animation: jumpCheckMarks 2.5s ease-in-out, fadeOutAnimation 2.5s;
+  z-index: 2;
+}
+
+@keyframes fadeOutAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes jumpCheckMarks {
+  0% {
+    transform: translateY(0);
+  }
+  50%, 100% {
+    transform: translateY(-120px);
+  }
+}
+
+.seletor-imagem {
+  width: 40px; /* Ajuste conforme necessário */
+  height: 40px; /* Ajuste conforme necessário */
+  animation: moverSeletor 1s linear infinite; /* Adiciona a animação de movimento */
+  position:absolute;
+}
+
+.seletor1{
+  left:48.5%;
+  top:79.8%;
+}
+
+.seletor2{
+  left:65.5%;
+  top:79.8%;
+}
+
+.seletor3{
+  left:48.5%;
+  top:89.8%;
+}
+
+.seletor4{
+  left:65.5%;
+  top:89.8%;
+}
+
+@keyframes moverSeletor {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px); /* Ajuste conforme necessário */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

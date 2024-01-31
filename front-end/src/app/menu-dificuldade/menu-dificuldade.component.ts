@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DificuldadeService } from '../services/dificuldade.service';
+import { SharedExpressionService } from '../services/shared-expression.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-menu-dificuldade',
@@ -9,35 +12,31 @@ import { Router } from '@angular/router';
 export class MenuDificuldadeComponent {
 
   textoIniciante = 'Iniciante';
-  descIniciante1 = '+'
-  descIniciante2 = '-'
-  descIniciante3 = 'x'
-
   textoModerado = 'Moderado';
-  descModerado1 = '()'
-  descModerado2 = '÷'
-
   textoExperiente = 'Experiente';
-  descExperiente1 = '[]'
-  descExperiente2 = 'x²'
-
   textoMestre = 'Mestre';
-  descMestre1 = '{}'
-  descMestre2 = '√'
 
-  progressoIniciante = '40';
-  progressoModerado = '20';
-  progressoExperiente = '60';
-  progressoMestre = '100';
-
-  constructor(private router: Router) {}
+  progressoIniciante = this.authService.getPIniciante();
+  progressoModerado = this.authService.getPModerado();
+  progressoExperiente = this.authService.getPExperiente();
+  progressoMestre = this.authService.getPMestre();
+  
+  constructor(
+    private router: Router,
+    private dificuldadeService: DificuldadeService,
+    private authService: AuthService) {}
   
   retornarHome(): void {
-    this.router.navigate(['/']); //
+    this.router.navigate(['/home']); //
   }
 
-  handleButtonClick(arg0: string) {
-    throw new Error('Method not implemented.');
+  handleButtonClick(dificuldade: string) {
+    // Define a dificuldade no serviço
+    console.log(dificuldade);
+    this.dificuldadeService.setDificuldade(dificuldade);
+
+    // Router para a tela de batalha
+    this.router.navigate(['/batalha']);
   }
 
 }
