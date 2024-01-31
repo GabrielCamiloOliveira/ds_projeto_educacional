@@ -10,7 +10,11 @@
 
 - Menu principal
 
+![via GIPHY](https://media.giphy.com/media/9k7r83Q9ayOkTpMTa9/giphy.gif)
+
 - Seleção de dificuldade de exercícios
+
+
 
 - Exercícios e algoritmo de geração de expressões
 
@@ -18,10 +22,9 @@
 
 ![via GIPHY](https://media.giphy.com/media/pG1JEu7vvKNsqqkwQp/giphy.gif)
 
-<blockquote class="imgur-embed-pub" lang="en" data-id="a/vNt2v7F">
-    <a href="//imgur.com/a/vNt2v7F">Banco de Dados postgreSQL</a>
-</blockquote>
+- Banco de Dados postgreSQL
 
+![Imagem do banco de dados](https://imgur.com/gallery/vNt2v7F.png)
 
 # Backlog do produto
 
