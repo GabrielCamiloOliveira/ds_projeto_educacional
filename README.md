@@ -18,7 +18,7 @@
 
 - Banco de Dados postgreSQL
 
-![Imagem do banco de dados](https://imgur.com/1IdgPXD)
+![Imagem do banco de dados](https://imgur.com/a/vNt2v7F)
 
 # Backlog do produto
 
