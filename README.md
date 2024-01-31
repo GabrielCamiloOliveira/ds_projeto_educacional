@@ -16,11 +16,7 @@
 
 - Coleção do usuário
 
-<div style="width:100%;height:0;padding-bottom:56%;position:relative;">
-    <iframe src="https://giphy.com/embed/pG1JEu7vvKNsqqkwQp" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-</div>
-<p><a href="https://giphy.com/gifs/pG1JEu7vvKNsqqkwQp">via GIPHY</a></p>
-
+![via GIPHY](https://media.giphy.com/media/pG1JEu7vvKNsqqkwQp/giphy.gif)
 
 - Banco de Dados postgreSQL
 
