@@ -16,6 +16,10 @@
 
 - Coleção do usuário
 
+- Banco de Dados postgreSQL
+
+![Imagem do banco de dados](https://imgur.com/a/vNt2v7F)
+
 # Backlog do produto
 
 |Iteração|Tarefa|Data Início|Data Fim|Responsável|Situação|
