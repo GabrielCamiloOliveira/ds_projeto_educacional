@@ -32,6 +32,10 @@
 
 ![Imagem do banco de dados](https://i.imgur.com/1IdgPXD.png)
 
+- Backend Java Springboot rodando
+
+![Imagem do backend](https://i.imgur.com/uRLX10Q.png)
+
 # Backlog do produto
 
 |Iteração|Tarefa|Data Início|Data Fim|Responsável|Situação|
