@@ -1,6 +1,6 @@
-//package com.example.plataforma.achievement.student.token;
-//
-//public enum TokenType {
-//
-//    BEARER;
-//}
+package com.example.plataforma.student.token;
+
+public enum TokenType {
+
+    BEARER;
+}

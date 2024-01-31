@@ -1,5 +1,7 @@
 package com.example.plataforma.student.service;
+import com.example.plataforma.student.exception.UserException;
 import com.example.plataforma.student.repository.StudentRepository;
+import jdk.jshell.spi.ExecutionControl;
 import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -11,6 +13,7 @@ import com.example.plataforma.student.mapper.StudentMapper;
 
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -23,10 +26,13 @@ public class StudentService {
 //    private final PasswordEncoder passwordEncoder;
 
 //    @Autowired
+//
 //    public StudentService(StudentRepository studentRepository, PasswordEncoder passwordEncoder) {
 //        this.studentRepository = studentRepository;
 //        this.passwordEncoder = passwordEncoder;
 //    }
+
+
 
     @Autowired
     public StudentService (StudentRepository studentRepository){
@@ -53,6 +59,17 @@ public class StudentService {
         var createdStudent = this.studentRepository.save(studentToCreate);
 
         return "Student created!";
+    }
+
+    public Student login (String email, String senha) throws UserException{
+
+
+        Student student = studentRepository.findStudentByEmail(email).orElseThrow(() -> new UserException("Email não encontrado"));
+        if (!Objects.equals(student.getPassword(), senha)){
+            throw new UserException("Senha incorreta.");
+        }
+
+        return student;
     }
 
     public String update(String username, StudentAccountDTO studentAccountDTO) {

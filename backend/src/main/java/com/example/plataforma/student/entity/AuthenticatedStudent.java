@@ -8,17 +8,17 @@
 //@AllArgsConstructor
 //public class AuthenticatedStudent implements UserDetails {
 //
-//    private Student com.example.plataforma.entity.student;
+//    private Student student;
 //
 //    @Override
 //    public Collection<? extends GrantedAuthority> getAuthorities() { return null; }
 //
 //    @Override
-//    public String getPassword() { return com.example.plataforma.achievement.student.getPassword(); }
+//    public String getPassword() { return student.getPassword(); }
 //
 //    @Override
 //    public String getUsername() {
-//        return com.example.plataforma.achievement.student.getUsername();
+//        return student.getUsername();
 //    }
 //
 //    @Override
