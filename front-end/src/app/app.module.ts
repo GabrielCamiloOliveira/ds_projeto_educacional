@@ -16,6 +16,9 @@ import { LoginFormComponent } from './auth/login-form/login-form.component';
 import { CadastroFormComponent } from './auth/cadastro-form/cadastro-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NewUsuarioComponent } from './singular-components/new-usuario/new-usuario.component';
+import { PokemonComponent } from './pokedex/pokemon/pokemon.component';
+import { PokemonListComponent } from './pokedex/pokemon-list/pokemon-list.component';
+import { HeaderComponent } from './pokedex/header/header.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { NewUsuarioComponent } from './singular-components/new-usuario/new-usuar
     LoginFormComponent,
     CadastroFormComponent,
     NewUsuarioComponent,
+    PokemonComponent,
+    PokemonListComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

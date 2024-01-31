@@ -1,3 +1,5 @@
+import { Achievement } from "./achievement";
+
 export interface Usuario {
     
     id: number;
@@ -6,10 +8,10 @@ export interface Usuario {
     senha: string;
     nivel: number;
     hp: number;
-    pokemons: number[];
+    achievementList: Achievement[];
     pokemonAtual : number;
-    pIniciante: number;
-    pModerado: number;
-    pExperiente: number;
-    pMestre: number;
+    progressoFacil: number;
+    progressoMedio: number;
+    progressoDificil: number;
+    progressoInsano: number;
 }

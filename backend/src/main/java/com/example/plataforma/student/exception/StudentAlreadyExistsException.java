@@ -5,6 +5,6 @@ import jakarta.persistence.EntityExistsException;
 public class StudentAlreadyExistsException extends EntityExistsException {
 
     public StudentAlreadyExistsException(String username) {
-        super(String.format("Student with username %s already exists", username));
+        super("Student with username %s already exists".formatted(username));
     }
 }

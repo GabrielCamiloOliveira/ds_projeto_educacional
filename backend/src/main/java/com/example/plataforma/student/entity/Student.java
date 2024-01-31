@@ -19,31 +19,31 @@ public class Student extends Auditable {
     @Column(nullable = false, unique = true, length = 30)
     private String username;
 
-    @Column(nullable = false, unique = true, length = 100)
+    @Column(nullable = true, unique = true, length = 100)
     private String name;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Integer age;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private Double average;
 
     @Column(nullable = false)
     private String email;
 
-   // @Column(nullable = false)
+   @Column(nullable = true)
     private Double progressoFacil;
 
-   // @Column(nullable = false)
+   @Column(nullable = true)
     private Double progressoMedio;
 
-   //@Column(nullable = false)
+   @Column(nullable = true)
     private Double progressoDificil;
 
-    //@Column(nullable = false)
+    @Column(nullable = true)
     private Double progressoInsano;
 
     @ManyToMany
@@ -60,6 +60,8 @@ public class Student extends Auditable {
 
     @ManyToOne(cascade = {CascadeType.MERGE})
     private Responsible responsible;
+
+    private Integer pokemonAtual;
 
 
     public Student() {
@@ -78,7 +80,7 @@ public class Student extends Auditable {
         this.responsible = responsible;
     }
 
-    public Student(String username, String name, String password, Integer age, Double average, String email, List<Activity> doneActivities, List<Achievement> achievementList, Responsible responsible) {
+    public Student(String username, String name, String password, Integer age, Double average, String email, List<Activity> doneActivities, List<Achievement> achievementList, Responsible responsible, Integer pokemonAtual) {
         this.username = username;
         this.name = name;
         this.password = password;
@@ -88,6 +90,7 @@ public class Student extends Auditable {
         this.doneActivities = doneActivities;
         this.achievementList = achievementList;
         this.responsible = responsible;
+        this.pokemonAtual = pokemonAtual;
     }
 
     public Student(String username, String password, String email) {

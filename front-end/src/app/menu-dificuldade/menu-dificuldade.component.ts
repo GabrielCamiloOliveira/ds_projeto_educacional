@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DificuldadeService } from '../services/dificuldade.service';
 import { SharedExpressionService } from '../services/shared-expression.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-menu-dificuldade',
@@ -15,12 +16,15 @@ export class MenuDificuldadeComponent {
   textoExperiente = 'Experiente';
   textoMestre = 'Mestre';
 
-  progressoIniciante = '40';
-  progressoModerado = '20';
-  progressoExperiente = '60';
-  progressoMestre = '100';
-
-  constructor(private router: Router, private dificuldadeService: DificuldadeService) {}
+  progressoIniciante = this.authService.getPIniciante();
+  progressoModerado = this.authService.getPModerado();
+  progressoExperiente = this.authService.getPExperiente();
+  progressoMestre = this.authService.getPMestre();
+  
+  constructor(
+    private router: Router,
+    private dificuldadeService: DificuldadeService,
+    private authService: AuthService) {}
   
   retornarHome(): void {
     this.router.navigate(['/home']); //

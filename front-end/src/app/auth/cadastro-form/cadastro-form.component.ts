@@ -62,7 +62,9 @@ export class CadastroFormComponent {
   
         //console.log(this.userForm.value);
         this.onSubmit.emit(this.userForm.value);
+        this.createdHandler(this.userForm.value);
         console.log("Enviado");
+        this.router.navigate(['/login']);
       }
   }
 
