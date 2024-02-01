@@ -12,6 +12,8 @@ import java.util.List;
 @Entity
 public class Student extends Auditable {
 
+    // Classe Studante com atributos e construtores
+
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;

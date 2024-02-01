@@ -4,6 +4,8 @@ import com.example.plataforma.service.AchievementService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// controller achievements
+
 @RestController("AchievementController")
 @RequestMapping("api/v1/achievements")
 public class AchievementController {

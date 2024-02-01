@@ -14,6 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 public class ApiError {
 
+    // Erro na execução
+
     private Integer code;
 
     private String stats;

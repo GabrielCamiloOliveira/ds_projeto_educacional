@@ -18,6 +18,8 @@ import java.util.Optional;
 @Service
 public class StudentService {
 
+    // Classe com os serviços do estudante
+
     private final static StudentMapper studentMapper = StudentMapper.INSTANCE;
 
     private final StudentRepository studentRepository;

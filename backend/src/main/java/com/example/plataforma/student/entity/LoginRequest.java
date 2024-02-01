@@ -3,6 +3,7 @@ package com.example.plataforma.student.entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+// Classe autenticação login
 @Getter
 @AllArgsConstructor
 public class LoginRequest {
